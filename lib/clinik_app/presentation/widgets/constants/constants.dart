@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medical_clinik/utils.dart';
 
 Widget addVerticalSpacing(double height) => SizedBox(height: height);
 Widget addHorizontalSpacing(double width) => SizedBox(width: width);
@@ -13,3 +14,18 @@ const Color kAccentPrimaryGreen = Color(0xff66CA98);
 const Color kAccentPrimaryBlue = Color(0xff6295E2);
 const Color kAccentPrimaryRed = Color(0xffFF6C52);
 const Color kAccentPrimaryPurple = Color(0xffF4A3EC);
+TextStyle kHeaderTextStyle = SafeGoogleFont(
+  'Gilroy-SemiBold',
+  fontSize: 28,
+  fontWeight: FontWeight.w400,
+  height: 1.3571428571,
+  color: kDarkGrey,
+);
+
+TextStyle kSubHeaderTextStyle = SafeGoogleFont(
+  'Inter',
+  fontSize: 14,
+  fontWeight: FontWeight.w500,
+  height: 1.2125,
+  color: const Color(0xffa6a6a5),
+);
