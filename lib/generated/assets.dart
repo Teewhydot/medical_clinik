@@ -11,6 +11,8 @@ class Assets {
   static const String imagesAutoGroupUvxx = 'assets/images/auto-group-uvxx.png';
   static const String imagesBattery = 'assets/images/battery.png';
   static const String imagesButton = 'assets/images/button.png';
+  static const String imagesDoctorImageIntro =
+      'assets/images/doctor_image_intro.jpg';
   static const String imagesDoctorNursesSpecialEquipment1 =
       'assets/images/doctor-nurses-special-equipment-1.png';
   static const String
