@@ -37,7 +37,6 @@ class IntroPageTwo extends StatelessWidget {
                 ),
               ),
               Container(
-                // pellentesqueplaceratarcuinrisu (9:405)
                 margin:
                     EdgeInsets.fromLTRB(0.5 * fem, 0 * fem, 0 * fem, 72 * fem),
                 constraints: BoxConstraints(
@@ -143,8 +142,8 @@ class IntroPageTwo extends StatelessWidget {
                             child: Text(
                               'I’m a Doctor',
                               textAlign: TextAlign.left,
-                              style: kHeaderTextStyle.copyWith(
-                                  color: kAccentPrimaryGreen),
+                              style:
+                                  kHeaderTextStyle.copyWith(color: kDarkGrey),
                             ),
                           ),
                           Text(
