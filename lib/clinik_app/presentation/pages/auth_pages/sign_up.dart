@@ -4,6 +4,7 @@ import 'package:medical_clinik/clinik_app/presentation/widgets/reused_widgets/bu
 import 'package:medical_clinik/clinik_app/presentation/widgets/reused_widgets/checkbox_widget.dart';
 import 'package:medical_clinik/clinik_app/presentation/widgets/reused_widgets/custom_textfield.dart';
 import 'package:medical_clinik/clinik_app/presentation/widgets/reused_widgets/header_widget.dart';
+import 'package:medical_clinik/clinik_app/presentation/widgets/reused_widgets/required_asterisks.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({Key? key}) : super(key: key);
@@ -20,100 +21,116 @@ class _SignUpPageState extends State<SignUpPage> {
       body: SafeArea(
           child: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                children: [
-                  HeaderWidget(
-                    fem: fem,
-                    headerText: Text(
-                      'Sign Up',
-                      style: kHeaderTextStyle,
-                      textAlign: TextAlign.center,
+        child: SingleChildScrollView(
+          child: Column(children: [
+            Column(
+              children: [
+                HeaderWidget(
+                  fem: fem,
+                  headerText: Text(
+                    'Sign Up',
+                    style: kHeaderTextStyle,
+                    textAlign: TextAlign.center,
+                  ),
+                  subHeaderText: Container(),
+                ),
+                Row(
+                  children: [
+                    Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text('Full Name', style: kSubHeaderTextStyle)),
+                    RequiredAsterisks(fem: fem),
+                  ],
+                ),
+                addVerticalSpacing(10),
+                const CustomTextField(
+                  keyboardType: TextInputType.name,
+                  hintText: 'John Wick',
+                ),
+                addVerticalSpacing(10),
+                Row(
+                  children: [
+                    Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text('Email', style: kSubHeaderTextStyle)),
+                    RequiredAsterisks(fem: fem),
+                  ],
+                ),
+                addVerticalSpacing(10),
+                const CustomTextField(
+                  keyboardType: TextInputType.emailAddress,
+                  hintText: 'patient@self.com',
+                ),
+                addVerticalSpacing(10),
+                Row(
+                  children: [
+                    Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text('Password', style: kSubHeaderTextStyle)),
+                    RequiredAsterisks(fem: fem),
+                  ],
+                ),
+                addVerticalSpacing(10),
+                const CustomTextField(
+                  keyboardType: TextInputType.visiblePassword,
+                  hintText: 'Min 8 characters',
+                ),
+                addVerticalSpacing(10),
+                // checkbox and text
+                Row(
+                  children: [
+                    const Expanded(
+                      flex: 1,
+                      child: MyCheckbox(),
                     ),
-                    subHeaderText: Container(),
-                  ),
-                  Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text('Full Name', style: kSubHeaderTextStyle)),
-                  addVerticalSpacing(10),
-                  const CustomTextField(
-                    keyboardType: TextInputType.name,
-                    hintText: 'John Wick',
-                  ),
-                  addVerticalSpacing(10),
-                  Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text('Email', style: kSubHeaderTextStyle)),
-                  addVerticalSpacing(10),
-                  const CustomTextField(
-                    keyboardType: TextInputType.emailAddress,
-                    hintText: 'patient@self.com',
-                  ),
-                  addVerticalSpacing(10),
-                  Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text('Password', style: kSubHeaderTextStyle)),
-                  addVerticalSpacing(10),
-                  const CustomTextField(
-                    keyboardType: TextInputType.visiblePassword,
-                    hintText: 'Min 8 characters',
-                  ),
-                  addVerticalSpacing(10),
-                  // checkbox and text
-                  Row(
-                    children: [
-                      const Expanded(
-                        flex: 1,
-                        child: MyCheckbox(),
-                      ),
-                      Expanded(
-                        flex: 7,
-                        child: RichText(
-                          text: TextSpan(
-                            style: kSubHeaderTextStyle,
-                            children: [
-                              const TextSpan(
-                                text: 'I agree with the terms and ',
-                              ),
-                              TextSpan(
-                                  text: 'Privacy policy',
-                                  style: kSubHeaderTextStyle.copyWith(
-                                      color: kAccentPrimaryGreen)),
-                            ],
-                          ),
+                    Expanded(
+                      flex: 7,
+                      child: RichText(
+                        text: TextSpan(
+                          style: kSubHeaderTextStyle,
+                          children: [
+                            const TextSpan(
+                              text: 'I agree with the terms and ',
+                            ),
+                            TextSpan(
+                                text: 'Privacy policy',
+                                style: kSubHeaderTextStyle.copyWith(
+                                    color: kAccentPrimaryGreen)),
+                          ],
                         ),
                       ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            addVerticalSpacing(50),
+            Column(
+              children: [
+                ButtonWidget(
+                    fem: fem,
+                    color: kAccentPrimaryGreen,
+                    buttonText: 'Sign Up'),
+                addVerticalSpacing(15),
+                RichText(
+                  text: TextSpan(
+                    style: kSubHeaderTextStyle,
+                    children: [
+                      const TextSpan(
+                        text: 'Already have an account? ',
+                      ),
+                      TextSpan(
+                          text: 'Sign In',
+                          style: kSubHeaderTextStyle.copyWith(
+                              color: kAccentPrimaryGreen)),
                     ],
                   ),
-                ],
-              ),
-              Column(
-                children: [
-                  ButtonWidget(
-                      fem: fem,
-                      color: kAccentPrimaryGreen,
-                      buttonText: 'Sign Up'),
-                  addVerticalSpacing(15),
-                  RichText(
-                    text: TextSpan(
-                      style: kSubHeaderTextStyle,
-                      children: [
-                        const TextSpan(
-                          text: 'Already have an account? ',
-                        ),
-                        TextSpan(
-                            text: 'Sign In',
-                            style: kSubHeaderTextStyle.copyWith(
-                                color: kAccentPrimaryGreen)),
-                      ],
-                    ),
-                  ),
-                  addVerticalSpacing(20)
-                ],
-              )
-            ]),
+                ),
+                addVerticalSpacing(20)
+              ],
+            )
+          ]),
+        ),
       )),
     );
   }

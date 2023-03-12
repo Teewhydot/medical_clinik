@@ -18,7 +18,7 @@ class HeaderWidget extends StatelessWidget {
       children: [
         Center(
           child: Container(
-            margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 90 * fem),
+            margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 50 * fem),
             child: Image.asset(
               Assets.imagesLogoMedicine143,
               height: 33 * fem,
