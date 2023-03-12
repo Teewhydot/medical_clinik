@@ -45,6 +45,13 @@ class SignInPage extends StatelessWidget {
                     keyboardType: TextInputType.visiblePassword,
                     hintText: 'Min 8 characters',
                   ),
+                  addVerticalSpacing(10),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: Text('Forgot your password?',
+                        style: kSubHeaderTextStyle.copyWith(
+                            color: kAccentPrimaryGreen)),
+                  ),
                 ],
               ),
               Column(
@@ -53,7 +60,6 @@ class SignInPage extends StatelessWidget {
                       fem: fem,
                       color: kAccentPrimaryGreen,
                       buttonText: 'Sign In'),
-                  addVerticalSpacing(20),
                 ],
               )
             ]),
