@@ -14,6 +14,7 @@ const Color kAccentPrimaryGreen = Color(0xff66CA98);
 const Color kAccentPrimaryBlue = Color(0xff6295E2);
 const Color kAccentPrimaryRed = Color(0xffFF6C52);
 const Color kAccentPrimaryPurple = Color(0xffF4A3EC);
+const Color kScaffoldColor = Color(0xffF5F5F5);
 TextStyle kHeaderTextStyle = SafeGoogleFont(
   'Gilroy-SemiBold',
   fontSize: 28,

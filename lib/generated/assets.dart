@@ -2,6 +2,16 @@
 class Assets {
   Assets._();
 
+  static const String iconsChatSelected = 'assets/icons/chat_selected.png';
+  static const String iconsChatUnselected = 'assets/icons/chat_unselected.png';
+  static const String iconsHomeSelected = 'assets/icons/home_selected.png';
+  static const String iconsHomeUnselected = 'assets/icons/home_unselected.png';
+  static const String iconsProfileUnselected =
+      'assets/icons/profile_unselected.png';
+  static const String iconsReceiptSelected =
+      'assets/icons/receipt_selected.png';
+  static const String iconsReceiptUnselected =
+      'assets/icons/receipt_unselected.png';
   static const String imagesArrowDown = 'assets/images/arrow-down.png';
   static const String imagesArrows = 'assets/images/arrows.png';
   static const String imagesArrows9L4 = 'assets/images/arrows-9L4.png';
@@ -232,28 +242,6 @@ class Assets {
   static const String imagesMaskGroup = 'assets/images/mask-group.png';
   static const String imagesMaskGroupBloodTest =
       'assets/images/mask-group-blood-test.png';
-  static const String imagesMenu = 'assets/images/menu.png';
-  static const String imagesMenu3rx = 'assets/images/menu-3rx.png';
-  static const String imagesMenu5Pe = 'assets/images/menu-5Pe.png';
-  static const String imagesMenu6cp = 'assets/images/menu-6cp.png';
-  static const String imagesMenu8dW = 'assets/images/menu-8dW.png';
-  static const String imagesMenuHwN = 'assets/images/menu-HwN.png';
-  static const String imagesMenuJwv = 'assets/images/menu-jwv.png';
-  static const String imagesMenuX12 = 'assets/images/menu-X12.png';
-  static const String imagesMenuXMa = 'assets/images/menu-XMa.png';
-  static const String imagesMenuZq6 = 'assets/images/menu-zq6.png';
-  static const String imagesRectangle = 'assets/images/rectangle.png';
-  static const String imagesRectangle306 = 'assets/images/rectangle-306.png';
-  static const String imagesRectangle310 = 'assets/images/rectangle-310.png';
-  static const String imagesRectangle311 = 'assets/images/rectangle-311.png';
-  static const String imagesRectangle312 = 'assets/images/rectangle-312.png';
-  static const String imagesRectangle38Bg = 'assets/images/rectangle-38-bg.png';
-  static const String imagesRectangle8 = 'assets/images/rectangle-8.png';
-  static const String imagesRectangle8HVz = 'assets/images/rectangle-8-hVz.png';
-  static const String imagesRectangleBg = 'assets/images/rectangle-bg.png';
-  static const String imagesRectangleBgMv8 =
-      'assets/images/rectangle-bg-mv8.png';
-  static const String imagesRectangleQ7z = 'assets/images/rectangle-Q7z.png';
   static const String imagesWifi = 'assets/images/wifi.png';
   static const String imagesWifi4Nk = 'assets/images/wifi-4Nk.png';
   static const String imagesWifi6HE = 'assets/images/wifi-6HE.png';
