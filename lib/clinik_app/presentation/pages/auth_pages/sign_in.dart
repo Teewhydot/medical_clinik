@@ -60,6 +60,22 @@ class SignInPage extends StatelessWidget {
                       fem: fem,
                       color: kAccentPrimaryGreen,
                       buttonText: 'Sign In'),
+                  addVerticalSpacing(15),
+                  RichText(
+                    text: TextSpan(
+                      style: kSubHeaderTextStyle,
+                      children: [
+                        const TextSpan(
+                          text: 'Don’t have an account? ',
+                        ),
+                        TextSpan(
+                            text: 'Sign Up',
+                            style: kSubHeaderTextStyle.copyWith(
+                                color: kAccentPrimaryGreen)),
+                      ],
+                    ),
+                  ),
+                  addVerticalSpacing(20)
                 ],
               )
             ]),
