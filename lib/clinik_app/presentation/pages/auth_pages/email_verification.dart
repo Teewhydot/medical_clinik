@@ -48,7 +48,11 @@ class EmailPinPage extends StatelessWidget {
           Column(
             children: [
               ButtonWidget(
-                  fem: fem, color: kAccentPrimaryGreen, buttonText: 'Verify'),
+                fem: fem,
+                color: kAccentPrimaryGreen,
+                buttonText: 'Verify',
+                onTap: () {},
+              ),
               addVerticalSpacing(20)
             ],
           ),

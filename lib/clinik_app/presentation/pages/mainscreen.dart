@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medical_clinik/clinik_app/presentation/pages/home_page.dart';
 import 'package:medical_clinik/clinik_app/presentation/widgets/constants/constants.dart';
+import 'package:medical_clinik/clinik_app/presentation/widgets/constants/device_width.dart';
 import 'package:medical_clinik/generated/assets.dart';
 
 import 'chat.dart';
@@ -37,7 +38,7 @@ class _MainScreenState extends State<MainScreen> {
             ),
             color: Colors.white),
         padding: const EdgeInsets.all(5),
-        width: 375,
+        width: Constants.deviceWidth,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [

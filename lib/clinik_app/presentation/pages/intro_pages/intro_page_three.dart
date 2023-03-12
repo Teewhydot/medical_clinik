@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medical_clinik/clinik_app/presentation/widgets/constants/constants.dart';
+import 'package:medical_clinik/clinik_app/presentation/widgets/constants/device_width.dart';
 import 'package:medical_clinik/clinik_app/presentation/widgets/reused_widgets/birthday_field_widget.dart';
 import 'package:medical_clinik/clinik_app/presentation/widgets/reused_widgets/button_widget.dart';
 import 'package:medical_clinik/clinik_app/presentation/widgets/reused_widgets/country_drop_down.dart';
@@ -11,7 +12,7 @@ class IntroPageThree extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double fem = MediaQuery.of(context).size.width / baseWidth;
+    double fem = Constants.deviceWidth! / baseWidth;
     return Scaffold(
         body: SingleChildScrollView(
       child: SafeArea(
@@ -180,7 +181,11 @@ class IntroPageThree extends StatelessWidget {
               const CountryPickerWidget(),
               addVerticalSpacing(60),
               ButtonWidget(
-                  fem: fem, color: kAccentPrimaryGreen, buttonText: 'Continue')
+                fem: fem,
+                color: kAccentPrimaryGreen,
+                buttonText: 'Continue',
+                onTap: () {},
+              )
             ],
           ),
         ),

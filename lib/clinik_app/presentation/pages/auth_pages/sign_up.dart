@@ -108,9 +108,11 @@ class _SignUpPageState extends State<SignUpPage> {
             Column(
               children: [
                 ButtonWidget(
-                    fem: fem,
-                    color: kAccentPrimaryGreen,
-                    buttonText: 'Sign Up'),
+                  fem: fem,
+                  color: kAccentPrimaryGreen,
+                  buttonText: 'Sign Up',
+                  onTap: () {},
+                ),
                 addVerticalSpacing(15),
                 RichText(
                   text: TextSpan(

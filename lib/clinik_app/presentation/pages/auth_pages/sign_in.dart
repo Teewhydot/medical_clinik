@@ -57,9 +57,11 @@ class SignInPage extends StatelessWidget {
               Column(
                 children: [
                   ButtonWidget(
-                      fem: fem,
-                      color: kAccentPrimaryGreen,
-                      buttonText: 'Sign In'),
+                    fem: fem,
+                    color: kAccentPrimaryGreen,
+                    buttonText: 'Sign In',
+                    onTap: () {},
+                  ),
                   addVerticalSpacing(15),
                   RichText(
                     text: TextSpan(

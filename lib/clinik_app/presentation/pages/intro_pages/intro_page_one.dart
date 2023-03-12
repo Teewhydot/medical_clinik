@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:medical_clinik/clinik_app/presentation/pages/intro_pages/intro_page_two.dart';
 import 'package:medical_clinik/clinik_app/presentation/widgets/constants/constants.dart';
+import 'package:medical_clinik/clinik_app/presentation/widgets/constants/device_width.dart';
 import 'package:medical_clinik/clinik_app/presentation/widgets/reused_widgets/button_widget.dart';
 
 import '../../../../generated/assets.dart';
@@ -9,7 +11,7 @@ class IntroPageOne extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double fem = MediaQuery.of(context).size.width / baseWidth;
+    double fem = Constants.deviceWidth! / baseWidth;
     return Scaffold(
         backgroundColor: Colors.white,
         body: Column(
@@ -38,9 +40,18 @@ class IntroPageOne extends StatelessWidget {
                     ),
                   ),
                   ButtonWidget(
-                      fem: fem,
-                      color: kAccentPrimaryGreen,
-                      buttonText: 'Get Started'),
+                    fem: fem,
+                    color: kAccentPrimaryGreen,
+                    buttonText: 'Get Started',
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const IntroPageTwo(),
+                        ),
+                      );
+                    },
+                  ),
                 ],
               ),
             )
