@@ -8,11 +8,13 @@ class BirthdayFieldWidget extends StatelessWidget {
     required this.fem,
     required this.width,
     required this.label,
+    required this.maxLength,
   });
 
   final double fem;
   final double width;
   final String label;
+  final int maxLength;
 
   @override
   Widget build(BuildContext context) {
@@ -30,8 +32,9 @@ class BirthdayFieldWidget extends StatelessWidget {
             ),
           ),
           TextFormField(
-            maxLength: 2,
-            // day (9:424)
+            maxLength: maxLength,
+            keyboardType: TextInputType.number,
+            textAlign: TextAlign.center,
             decoration: InputDecoration(
               counterText: '',
               contentPadding:
@@ -40,7 +43,6 @@ class BirthdayFieldWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10 * fem),
               ),
             ),
-
             maxLengthEnforcement: MaxLengthEnforcement.enforced,
           ),
         ],
