@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:medical_clinik/clinik_app/presentation/pages/intro_pages/intro_page_three.dart';
+import 'package:medical_clinik/clinik_app/presentation/pages/auth_pages/sign_in.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: IntroPageThree(),
+      home: SignInPage(),
     );
   }
 }

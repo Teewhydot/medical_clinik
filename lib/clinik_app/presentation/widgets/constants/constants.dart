@@ -17,7 +17,7 @@ const Color kAccentPrimaryPurple = Color(0xffF4A3EC);
 TextStyle kHeaderTextStyle = SafeGoogleFont(
   'Gilroy-SemiBold',
   fontSize: 28,
-  fontWeight: FontWeight.w400,
+  fontWeight: FontWeight.w600,
   height: 1.3571428571,
   color: kDarkGrey,
 );
@@ -27,5 +27,5 @@ TextStyle kSubHeaderTextStyle = SafeGoogleFont(
   fontSize: 14,
   fontWeight: FontWeight.w500,
   height: 1.2125,
-  color: const Color(0xffa6a6a5),
+  color: kDarkGreyShade800,
 );

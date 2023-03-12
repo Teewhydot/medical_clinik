@@ -3,6 +3,7 @@ import 'package:medical_clinik/clinik_app/presentation/widgets/constants/constan
 import 'package:medical_clinik/clinik_app/presentation/widgets/reused_widgets/birthday_field_widget.dart';
 import 'package:medical_clinik/clinik_app/presentation/widgets/reused_widgets/button_widget.dart';
 import 'package:medical_clinik/clinik_app/presentation/widgets/reused_widgets/country_drop_down.dart';
+import 'package:medical_clinik/clinik_app/presentation/widgets/reused_widgets/header_widget.dart';
 import 'package:medical_clinik/generated/assets.dart';
 
 class IntroPageThree extends StatelessWidget {
@@ -18,37 +19,14 @@ class IntroPageThree extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-              Center(
-                child: Container(
-                  margin:
-                      EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 90 * fem),
-                  child: Image.asset(
-                    Assets.imagesLogoMedicine143,
-                    height: 33 * fem,
-                    width: 33 * fem,
-                  ),
-                ),
-              ),
-              Container(
-                margin:
-                    EdgeInsets.fromLTRB(0.5 * fem, 0 * fem, 0 * fem, 13 * fem),
-                child: Text(
-                  'A little about yourself',
-                  textAlign: TextAlign.center,
-                  style: kHeaderTextStyle,
-                ),
-              ),
-              Container(
-                margin:
-                    EdgeInsets.fromLTRB(0.5 * fem, 0 * fem, 0 * fem, 72 * fem),
-                constraints: BoxConstraints(
-                  maxWidth: 316 * fem,
-                ),
-                child: Text(
-                  'Pellentesque placerat arcu in risus facilisis, sed laoreet eros laoreet.',
-                  textAlign: TextAlign.center,
-                  style: kSubHeaderTextStyle,
-                ),
+              HeaderWidget(
+                fem: fem,
+                headerText: Text('A little about yourself',
+                    style: kHeaderTextStyle, textAlign: TextAlign.center),
+                subHeaderText: Text(
+                    'Pellentesque placerat arcu in risus facilisis, sed laoreet eros laoreet',
+                    style: kSubHeaderTextStyle,
+                    textAlign: TextAlign.center),
               ),
               Align(
                 alignment: Alignment.centerLeft,

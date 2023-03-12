@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medical_clinik/clinik_app/presentation/widgets/constants/constants.dart';
 import 'package:medical_clinik/clinik_app/presentation/widgets/reused_widgets/button_widget.dart';
+import 'package:medical_clinik/clinik_app/presentation/widgets/reused_widgets/header_widget.dart';
 import 'package:medical_clinik/generated/assets.dart';
 
 class IntroPageTwo extends StatelessWidget {
@@ -17,37 +18,14 @@ class IntroPageTwo extends StatelessWidget {
           children: [
             Column(
               children: [
-                Center(
-                  child: Container(
-                    margin: EdgeInsets.fromLTRB(
-                        0 * fem, 0 * fem, 0 * fem, 90 * fem),
-                    child: Image.asset(
-                      Assets.imagesLogoMedicine143,
-                      height: 33 * fem,
-                      width: 33 * fem,
-                    ),
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.fromLTRB(
-                      0.5 * fem, 0 * fem, 0 * fem, 13 * fem),
-                  child: Text(
-                    'Let\'s get acquainted',
-                    textAlign: TextAlign.center,
-                    style: kHeaderTextStyle,
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.fromLTRB(
-                      0.5 * fem, 0 * fem, 0 * fem, 72 * fem),
-                  constraints: BoxConstraints(
-                    maxWidth: 316 * fem,
-                  ),
-                  child: Text(
-                    'Pellentesque placerat arcu in risus facilisis, sed laoreet eros laoreet.',
-                    textAlign: TextAlign.center,
-                    style: kSubHeaderTextStyle,
-                  ),
+                HeaderWidget(
+                  fem: fem,
+                  headerText: Text('Let\'s get acquainted',
+                      style: kHeaderTextStyle, textAlign: TextAlign.center),
+                  subHeaderText: Text(
+                      'Pellentesque placerat arcu in risus facilisis, sed laoreet eros laoreet',
+                      style: kSubHeaderTextStyle,
+                      textAlign: TextAlign.center),
                 ),
                 Container(
                   margin: EdgeInsets.fromLTRB(
