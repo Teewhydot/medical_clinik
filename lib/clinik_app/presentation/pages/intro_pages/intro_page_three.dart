@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:medical_clinik/clinik_app/presentation/widgets/constants/constants.dart';
+import 'package:medical_clinik/clinik_app/presentation/widgets/reused_widgets/birthday_field_widget.dart';
+import 'package:medical_clinik/clinik_app/presentation/widgets/reused_widgets/button_widget.dart';
+import 'package:medical_clinik/clinik_app/presentation/widgets/reused_widgets/country_drop_down.dart';
 import 'package:medical_clinik/generated/assets.dart';
 
 class IntroPageThree extends StatelessWidget {
@@ -97,7 +99,7 @@ class IntroPageThree extends StatelessWidget {
                               ),
                             ),
                           ),
-                          addHorizontalSpacing(10 * fem),
+                          addHorizontalSpacing(20 * fem),
                           Text(
                             // maleBwW (9:445)
                             'Male',
@@ -155,9 +157,10 @@ class IntroPageThree extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 child: Text(
                   'Your gender',
-                  style: kHeaderTextStyle,
+                  style: kHeaderTextStyle.copyWith(fontSize: 18),
                 ),
               ),
+              addVerticalSpacing(10),
               Container(
                 margin:
                     EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 38 * fem),
@@ -185,57 +188,22 @@ class IntroPageThree extends StatelessWidget {
                   ],
                 ),
               ),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Your location',
+                  style: kHeaderTextStyle.copyWith(fontSize: 18),
+                ),
+              ),
+              addVerticalSpacing(10),
+              const CountryPickerWidget(),
+              addVerticalSpacing(60),
+              ButtonWidget(
+                  fem: fem, color: kAccentPrimaryGreen, buttonText: 'Continue')
             ],
           ),
         ),
       ),
     ));
-  }
-}
-
-class BirthdayFieldWidget extends StatelessWidget {
-  const BirthdayFieldWidget({
-    super.key,
-    required this.fem,
-    required this.width,
-    required this.label,
-  });
-
-  final double fem;
-  final double width;
-  final String label;
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: width * fem,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            // dayCNk (9:423)
-            margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 7 * fem),
-            child: Text(
-              label,
-              style: kSubHeaderTextStyle,
-            ),
-          ),
-          TextFormField(
-            maxLength: 2,
-            // day (9:424)
-            decoration: InputDecoration(
-              counterText: '',
-              contentPadding:
-                  EdgeInsets.fromLTRB(5 * fem, 4 * fem, 5 * fem, 3 * fem),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10 * fem),
-              ),
-            ),
-
-            maxLengthEnforcement: MaxLengthEnforcement.enforced,
-          ),
-        ],
-      ),
-    );
   }
 }
