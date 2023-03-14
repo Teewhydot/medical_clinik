@@ -2,11 +2,15 @@
 class Assets {
   Assets._();
 
+  static const String iconsBloodTest = 'assets/icons/blood_test.png';
+  static const String iconsCardiologist = 'assets/icons/cardiologist.png';
   static const String iconsChatSelected = 'assets/icons/chat_selected.png';
   static const String iconsChatUnselected = 'assets/icons/chat_unselected.png';
+  static const String iconsDentist = 'assets/icons/dentist.png';
   static const String iconsFilter = 'assets/icons/filter.png';
   static const String iconsHomeSelected = 'assets/icons/home_selected.png';
   static const String iconsHomeUnselected = 'assets/icons/home_unselected.png';
+  static const String iconsOpthamilogist = 'assets/icons/opthamilogist.png';
   static const String iconsProfileUnselected =
       'assets/icons/profile_unselected.png';
   static const String iconsReceiptSelected =
@@ -158,32 +162,8 @@ class Assets {
       'assets/images/image-dr-eleanor-pena.png';
   static const String imagesImageDrFloydMiles =
       'assets/images/image-dr-floyd-miles.png';
-  static const String imagesImageDrFloydMiles3gc =
-      'assets/images/image-dr-floyd-miles-3gc.png';
-  static const String imagesImageDrFloydMiles5U4 =
-      'assets/images/image-dr-floyd-miles-5U4.png';
-  static const String imagesImageDrFloydMiles6nc =
-      'assets/images/image-dr-floyd-miles-6nc.png';
-  static const String imagesImageDrFloydMiles7rp =
-      'assets/images/image-dr-floyd-miles-7rp.png';
-  static const String imagesImageDrFloydMilesAzU =
-      'assets/images/image-dr-floyd-miles-azU.png';
-  static const String imagesImageDrFloydMilesCB2 =
-      'assets/images/image-dr-floyd-miles-cB2.png';
-  static const String imagesImageDrFloydMilesM4k =
-      'assets/images/image-dr-floyd-miles-m4k.png';
-  static const String imagesImageDrFloydMilesQuN =
-      'assets/images/image-dr-floyd-miles-QuN.png';
-  static const String imagesImageDrFloydMilesSiY =
-      'assets/images/image-dr-floyd-miles-siY.png';
-  static const String imagesImageDrFloydMilesYMr =
-      'assets/images/image-dr-floyd-miles-yMr.png';
   static const String imagesImageDrGuyHawkins =
       'assets/images/image-dr-guy-hawkins.png';
-  static const String imagesImageDrGuyHawkinsBuz =
-      'assets/images/image-dr-guy-hawkins-Buz.png';
-  static const String imagesImageDrGuyHawkinsHnQ =
-      'assets/images/image-dr-guy-hawkins-HnQ.png';
   static const String imagesImageDrJacobJones =
       'assets/images/image-dr-jacob-jones.png';
   static const String imagesImageDrJacobJonesNH6 =
@@ -198,10 +178,6 @@ class Assets {
       'assets/images/image-dr-marvin-mckinney.png';
   static const String imagesImageDrSavannahNguyen =
       'assets/images/image-dr-savannah-nguyen.png';
-  static const String imagesImageDrSavannahNguyenJCU =
-      'assets/images/image-dr-savannah-nguyen-jCU.png';
-  static const String imagesImageDrSavannahNguyenRGY =
-      'assets/images/image-dr-savannah-nguyen-rGY.png';
   static const String imagesImagePatient = 'assets/images/image-patient.png';
   static const String imagesLogo = 'assets/images/logo.png';
   static const String imagesLogoMedicine143 =
