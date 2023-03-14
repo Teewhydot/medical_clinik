@@ -15,15 +15,22 @@ const Color kAccentPrimaryBlue = Color(0xff6295E2);
 const Color kAccentPrimaryRed = Color(0xffFF6C52);
 const Color kAccentPrimaryPurple = Color(0xffF4A3EC);
 const Color kScaffoldColor = Color(0xffF5F5F5);
-TextStyle kHeaderTextStyle = SafeGoogleFont(
+TextStyle kHeaderTextStyleBlack = SafeGoogleFont(
   'Gilroy-SemiBold',
   fontSize: 28,
   fontWeight: FontWeight.w600,
   height: 1.3571428571,
   color: kDarkGrey,
 );
+TextStyle kHeaderTextStyleWhite = SafeGoogleFont(
+  'Gilroy-SemiBold',
+  fontSize: 28,
+  fontWeight: FontWeight.w600,
+  height: 1.3571428571,
+  color: Colors.white,
+);
 
-TextStyle kSubHeaderTextStyle = SafeGoogleFont(
+TextStyle kSubHeaderTextStyleGrey = SafeGoogleFont(
   'Inter',
   fontSize: 14,
   fontWeight: FontWeight.w500,

@@ -22,23 +22,23 @@ class EmailPinPage extends StatelessWidget {
                   fem: fem,
                   headerText: Text(
                     'Enter Code',
-                    style: kHeaderTextStyle,
+                    style: kHeaderTextStyleBlack,
                   ),
                   subHeaderText: Text(
                     'Code sent to email',
-                    style: kSubHeaderTextStyle,
+                    style: kSubHeaderTextStyleGrey,
                   )),
               const PinCodeWidget(),
               RichText(
                 text: TextSpan(
-                  style: kSubHeaderTextStyle,
+                  style: kSubHeaderTextStyleGrey,
                   children: [
                     const TextSpan(
                       text: 'Need a new code? ',
                     ),
                     TextSpan(
                         text: 'Resend Code',
-                        style: kSubHeaderTextStyle.copyWith(
+                        style: kSubHeaderTextStyleGrey.copyWith(
                             color: kAccentPrimaryGreen)),
                   ],
                 ),

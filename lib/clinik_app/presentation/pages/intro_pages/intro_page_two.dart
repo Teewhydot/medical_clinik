@@ -22,10 +22,11 @@ class IntroPageTwo extends StatelessWidget {
                 HeaderWidget(
                   fem: fem,
                   headerText: Text('Let\'s get acquainted',
-                      style: kHeaderTextStyle, textAlign: TextAlign.center),
+                      style: kHeaderTextStyleBlack,
+                      textAlign: TextAlign.center),
                   subHeaderText: Text(
                       'Pellentesque placerat arcu in risus facilisis, sed laoreet eros laoreet',
-                      style: kSubHeaderTextStyle,
+                      style: kSubHeaderTextStyleGrey,
                       textAlign: TextAlign.center),
                 ),
                 Container(
@@ -67,13 +68,13 @@ class IntroPageTwo extends StatelessWidget {
                             child: Text(
                               'I’m a patient',
                               textAlign: TextAlign.left,
-                              style: kHeaderTextStyle.copyWith(
+                              style: kHeaderTextStyleBlack.copyWith(
                                   color: kAccentPrimaryGreen),
                             ),
                           ),
                           Text(
                             'Proin convallis libero ac nisl ',
-                            style: kSubHeaderTextStyle,
+                            style: kSubHeaderTextStyleGrey,
                           ),
                         ],
                       ),
@@ -119,13 +120,13 @@ class IntroPageTwo extends StatelessWidget {
                             child: Text(
                               'I’m a Doctor',
                               textAlign: TextAlign.left,
-                              style:
-                                  kHeaderTextStyle.copyWith(color: kDarkGrey),
+                              style: kHeaderTextStyleBlack.copyWith(
+                                  color: kDarkGrey),
                             ),
                           ),
                           Text(
                             'Proin convallis libero ac nisl ',
-                            style: kSubHeaderTextStyle,
+                            style: kSubHeaderTextStyleGrey,
                           ),
                         ],
                       ),

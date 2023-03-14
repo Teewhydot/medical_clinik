@@ -23,17 +23,17 @@ class IntroPageThree extends StatelessWidget {
               HeaderWidget(
                 fem: fem,
                 headerText: Text('A little about yourself',
-                    style: kHeaderTextStyle, textAlign: TextAlign.center),
+                    style: kHeaderTextStyleBlack, textAlign: TextAlign.center),
                 subHeaderText: Text(
                     'Pellentesque placerat arcu in risus facilisis, sed laoreet eros laoreet',
-                    style: kSubHeaderTextStyle,
+                    style: kSubHeaderTextStyleGrey,
                     textAlign: TextAlign.center),
               ),
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
                   'Your gender',
-                  style: kHeaderTextStyle,
+                  style: kHeaderTextStyleBlack,
                 ),
               ),
               addVerticalSpacing(20),
@@ -82,7 +82,7 @@ class IntroPageThree extends StatelessWidget {
                           Text(
                             // maleBwW (9:445)
                             'Male',
-                            style: kHeaderTextStyle.copyWith(fontSize: 20),
+                            style: kHeaderTextStyleBlack.copyWith(fontSize: 20),
                           ),
                         ],
                       ),
@@ -124,7 +124,7 @@ class IntroPageThree extends StatelessWidget {
                           Text(
                             // maleBwW (9:445)
                             'Female',
-                            style: kHeaderTextStyle.copyWith(fontSize: 20),
+                            style: kHeaderTextStyleBlack.copyWith(fontSize: 20),
                           ),
                         ],
                       ),
@@ -136,7 +136,7 @@ class IntroPageThree extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 child: Text(
                   'Your gender',
-                  style: kHeaderTextStyle.copyWith(fontSize: 18),
+                  style: kHeaderTextStyleBlack.copyWith(fontSize: 18),
                 ),
               ),
               addVerticalSpacing(10),
@@ -174,7 +174,7 @@ class IntroPageThree extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 child: Text(
                   'Your location',
-                  style: kHeaderTextStyle.copyWith(fontSize: 18),
+                  style: kHeaderTextStyleBlack.copyWith(fontSize: 18),
                 ),
               ),
               addVerticalSpacing(10),

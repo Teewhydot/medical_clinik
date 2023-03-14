@@ -29,7 +29,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   fem: fem,
                   headerText: Text(
                     'Sign Up',
-                    style: kHeaderTextStyle,
+                    style: kHeaderTextStyleBlack,
                     textAlign: TextAlign.center,
                   ),
                   subHeaderText: Container(),
@@ -38,7 +38,8 @@ class _SignUpPageState extends State<SignUpPage> {
                   children: [
                     Align(
                         alignment: Alignment.centerLeft,
-                        child: Text('Full Name', style: kSubHeaderTextStyle)),
+                        child:
+                            Text('Full Name', style: kSubHeaderTextStyleGrey)),
                     RequiredAsterisks(fem: fem),
                   ],
                 ),
@@ -52,7 +53,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   children: [
                     Align(
                         alignment: Alignment.centerLeft,
-                        child: Text('Email', style: kSubHeaderTextStyle)),
+                        child: Text('Email', style: kSubHeaderTextStyleGrey)),
                     RequiredAsterisks(fem: fem),
                   ],
                 ),
@@ -66,7 +67,8 @@ class _SignUpPageState extends State<SignUpPage> {
                   children: [
                     Align(
                         alignment: Alignment.centerLeft,
-                        child: Text('Password', style: kSubHeaderTextStyle)),
+                        child:
+                            Text('Password', style: kSubHeaderTextStyleGrey)),
                     RequiredAsterisks(fem: fem),
                   ],
                 ),
@@ -87,14 +89,14 @@ class _SignUpPageState extends State<SignUpPage> {
                       flex: 7,
                       child: RichText(
                         text: TextSpan(
-                          style: kSubHeaderTextStyle,
+                          style: kSubHeaderTextStyleGrey,
                           children: [
                             const TextSpan(
                               text: 'I agree with the terms and ',
                             ),
                             TextSpan(
                                 text: 'Privacy policy',
-                                style: kSubHeaderTextStyle.copyWith(
+                                style: kSubHeaderTextStyleGrey.copyWith(
                                     color: kAccentPrimaryGreen)),
                           ],
                         ),
@@ -116,14 +118,14 @@ class _SignUpPageState extends State<SignUpPage> {
                 addVerticalSpacing(15),
                 RichText(
                   text: TextSpan(
-                    style: kSubHeaderTextStyle,
+                    style: kSubHeaderTextStyleGrey,
                     children: [
                       const TextSpan(
                         text: 'Already have an account? ',
                       ),
                       TextSpan(
                           text: 'Sign In',
-                          style: kSubHeaderTextStyle.copyWith(
+                          style: kSubHeaderTextStyleGrey.copyWith(
                               color: kAccentPrimaryGreen)),
                     ],
                   ),

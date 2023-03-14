@@ -26,17 +26,16 @@ class MedicalClinik extends StatelessWidget {
               ),
             ),
           ),
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const IntroPageOne(),
-                ),
-              );
-            },
-            child: Expanded(
-              flex: 1,
+          Expanded(
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const IntroPageOne(),
+                  ),
+                );
+              },
               child: Text(
                 'Loading...',
                 style: SafeGoogleFont(

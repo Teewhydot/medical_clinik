@@ -16,7 +16,7 @@ class RequiredAsterisks extends StatelessWidget {
       margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 80 * fem, 0 * fem),
       child: Text(
         '*',
-        style: kSubHeaderTextStyle.copyWith(color: Colors.red),
+        style: kSubHeaderTextStyleGrey.copyWith(color: Colors.red),
       ),
     );
   }

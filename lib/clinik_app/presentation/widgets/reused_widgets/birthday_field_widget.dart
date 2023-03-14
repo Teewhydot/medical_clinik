@@ -28,7 +28,7 @@ class BirthdayFieldWidget extends StatelessWidget {
             margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 7 * fem),
             child: Text(
               label,
-              style: kSubHeaderTextStyle,
+              style: kSubHeaderTextStyleGrey,
             ),
           ),
           TextFormField(

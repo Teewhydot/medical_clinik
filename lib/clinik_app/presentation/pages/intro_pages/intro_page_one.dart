@@ -36,7 +36,7 @@ class IntroPageOne extends StatelessWidget {
                     child: Text(
                       'Manage your health and happy future',
                       textAlign: TextAlign.center,
-                      style: kHeaderTextStyle,
+                      style: kHeaderTextStyleBlack,
                     ),
                   ),
                   ButtonWidget(

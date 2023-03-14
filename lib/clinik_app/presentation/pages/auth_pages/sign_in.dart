@@ -23,14 +23,14 @@ class SignInPage extends StatelessWidget {
                     fem: fem,
                     headerText: Text(
                       'Sign in',
-                      style: kHeaderTextStyle,
+                      style: kHeaderTextStyleBlack,
                       textAlign: TextAlign.center,
                     ),
                     subHeaderText: Container(),
                   ),
                   Align(
                       alignment: Alignment.centerLeft,
-                      child: Text('Email', style: kSubHeaderTextStyle)),
+                      child: Text('Email', style: kSubHeaderTextStyleGrey)),
                   addVerticalSpacing(10),
                   const CustomTextField(
                     keyboardType: TextInputType.emailAddress,
@@ -39,7 +39,7 @@ class SignInPage extends StatelessWidget {
                   addVerticalSpacing(10),
                   Align(
                       alignment: Alignment.centerLeft,
-                      child: Text('Password', style: kSubHeaderTextStyle)),
+                      child: Text('Password', style: kSubHeaderTextStyleGrey)),
                   addVerticalSpacing(10),
                   const CustomTextField(
                     keyboardType: TextInputType.visiblePassword,
@@ -49,7 +49,7 @@ class SignInPage extends StatelessWidget {
                   Align(
                     alignment: Alignment.centerRight,
                     child: Text('Forgot your password?',
-                        style: kSubHeaderTextStyle.copyWith(
+                        style: kSubHeaderTextStyleGrey.copyWith(
                             color: kAccentPrimaryGreen)),
                   ),
                 ],
@@ -65,14 +65,14 @@ class SignInPage extends StatelessWidget {
                   addVerticalSpacing(15),
                   RichText(
                     text: TextSpan(
-                      style: kSubHeaderTextStyle,
+                      style: kSubHeaderTextStyleGrey,
                       children: [
                         const TextSpan(
                           text: 'Don’t have an account? ',
                         ),
                         TextSpan(
                             text: 'Sign Up',
-                            style: kSubHeaderTextStyle.copyWith(
+                            style: kSubHeaderTextStyleGrey.copyWith(
                                 color: kAccentPrimaryGreen)),
                       ],
                     ),

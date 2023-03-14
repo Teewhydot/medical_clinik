@@ -52,8 +52,8 @@ class _MainScreenState extends State<MainScreen> {
                     });
                   },
                   child: SizedBox(
-                    height: 54,
-                    width: 60,
+                    height: 34,
+                    width: 34,
                     child: Image.asset(
                       pageIndex != 0
                           ? Assets.iconsHomeUnselected
@@ -73,8 +73,8 @@ class _MainScreenState extends State<MainScreen> {
                       });
                     },
                     child: SizedBox(
-                        height: 54,
-                        width: 60,
+                        height: 34,
+                        width: 34,
                         child: Image.asset(
                           pageIndex != 1
                               ? Assets.iconsReceiptUnselected
@@ -101,8 +101,8 @@ class _MainScreenState extends State<MainScreen> {
                       });
                     },
                     child: SizedBox(
-                        height: 54,
-                        width: 60,
+                        height: 34,
+                        width: 34,
                         child: Image.asset(
                           pageIndex != 2
                               ? Assets.iconsChatUnselected
@@ -120,8 +120,8 @@ class _MainScreenState extends State<MainScreen> {
                       });
                     },
                     child: SizedBox(
-                        height: 54,
-                        width: 60,
+                        height: 34,
+                        width: 34,
                         child: Image.asset(
                           Assets.iconsProfileUnselected,
                         ))),

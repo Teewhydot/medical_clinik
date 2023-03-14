@@ -4,6 +4,7 @@ class Assets {
 
   static const String iconsChatSelected = 'assets/icons/chat_selected.png';
   static const String iconsChatUnselected = 'assets/icons/chat_unselected.png';
+  static const String iconsFilter = 'assets/icons/filter.png';
   static const String iconsHomeSelected = 'assets/icons/home_selected.png';
   static const String iconsHomeUnselected = 'assets/icons/home_unselected.png';
   static const String iconsProfileUnselected =
@@ -142,22 +143,6 @@ class Assets {
   static const String imagesIconSearchXha = 'assets/images/icon-search-Xha.png';
   static const String imagesIconSend = 'assets/images/icon-send.png';
   static const String imagesIconStar = 'assets/images/icon-star.png';
-  static const String imagesIconStar8KA = 'assets/images/icon-star-8KA.png';
-  static const String imagesIconStarACg = 'assets/images/icon-star-aCg.png';
-  static const String imagesIconStarAhv = 'assets/images/icon-star-ahv.png';
-  static const String imagesIconStarBJx = 'assets/images/icon-star-BJx.png';
-  static const String imagesIconStarGTr = 'assets/images/icon-star-GTr.png';
-  static const String imagesIconStarIhN = 'assets/images/icon-star-ihN.png';
-  static const String imagesIconStarK6U = 'assets/images/icon-star-k6U.png';
-  static const String imagesIconStarKjz = 'assets/images/icon-star-kjz.png';
-  static const String imagesIconStarMdi = 'assets/images/icon-star-mdi.png';
-  static const String imagesIconStarMq2 = 'assets/images/icon-star-Mq2.png';
-  static const String imagesIconStarNwS = 'assets/images/icon-star-nwS.png';
-  static const String imagesIconStarPat = 'assets/images/icon-star-pat.png';
-  static const String imagesIconStarUA8 = 'assets/images/icon-star-uA8.png';
-  static const String imagesIconStarUeG = 'assets/images/icon-star-ueG.png';
-  static const String imagesIconStarUqW = 'assets/images/icon-star-UqW.png';
-  static const String imagesIconStarYTz = 'assets/images/icon-star-YTz.png';
   static const String imagesIconTime = 'assets/images/icon-time.png';
   static const String imagesIconTooth = 'assets/images/icon-tooth.png';
   static const String imagesIconTooth5kt = 'assets/images/icon-tooth-5kt.png';
@@ -242,24 +227,4 @@ class Assets {
   static const String imagesMaskGroup = 'assets/images/mask-group.png';
   static const String imagesMaskGroupBloodTest =
       'assets/images/mask-group-blood-test.png';
-  static const String imagesWifi = 'assets/images/wifi.png';
-  static const String imagesWifi4Nk = 'assets/images/wifi-4Nk.png';
-  static const String imagesWifi6HE = 'assets/images/wifi-6HE.png';
-  static const String imagesWifi8wz = 'assets/images/wifi-8wz.png';
-  static const String imagesWifiAeL = 'assets/images/wifi-AeL.png';
-  static const String imagesWifiCSU = 'assets/images/wifi-cSU.png';
-  static const String imagesWifiFBE = 'assets/images/wifi-fBE.png';
-  static const String imagesWifiGXA = 'assets/images/wifi-gXA.png';
-  static const String imagesWifiGmv = 'assets/images/wifi-Gmv.png';
-  static const String imagesWifiHoN = 'assets/images/wifi-HoN.png';
-  static const String imagesWifiJ4Y = 'assets/images/wifi-J4Y.png';
-  static const String imagesWifiPfv = 'assets/images/wifi-Pfv.png';
-  static const String imagesWifiPo2 = 'assets/images/wifi-po2.png';
-  static const String imagesWifiSLt = 'assets/images/wifi-sLt.png';
-  static const String imagesWifiTZv = 'assets/images/wifi-tZv.png';
-  static const String imagesWifiTgp = 'assets/images/wifi-tgp.png';
-  static const String imagesWifiU28 = 'assets/images/wifi-u28.png';
-  static const String imagesWifiW1e = 'assets/images/wifi-W1e.png';
-  static const String imagesWifiWVW = 'assets/images/wifi-WVW.png';
-  static const String imagesWifiYHE = 'assets/images/wifi-YHE.png';
 }
