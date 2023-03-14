@@ -19,6 +19,8 @@ class Assets {
       'assets/icons/receipt_selected.png';
   static const String iconsReceiptUnselected =
       'assets/icons/receipt_unselected.png';
+  static const String iconsTwoForwardArrows =
+      'assets/icons/two_forward_arrows.png';
   static const String imagesArrowDown = 'assets/images/arrow-down.png';
   static const String imagesArrows = 'assets/images/arrows.png';
   static const String imagesArrows9L4 = 'assets/images/arrows-9L4.png';
