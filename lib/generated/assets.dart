@@ -3,7 +3,9 @@ class Assets {
   Assets._();
 
   static const String iconsBloodTest = 'assets/icons/blood_test.png';
+  static const String iconsCall = 'assets/icons/call.png';
   static const String iconsCardiologist = 'assets/icons/cardiologist.png';
+  static const String iconsChat = 'assets/icons/chat.png';
   static const String iconsChatSelected = 'assets/icons/chat_selected.png';
   static const String iconsChatUnselected = 'assets/icons/chat_unselected.png';
   static const String iconsDentist = 'assets/icons/dentist.png';
