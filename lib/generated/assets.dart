@@ -19,6 +19,8 @@ class Assets {
       'assets/icons/receipt_selected.png';
   static const String iconsReceiptUnselected =
       'assets/icons/receipt_unselected.png';
+  static const String iconsSelfcareLogo = 'assets/icons/selfcare_logo.png';
+  static const String iconsThankYou = 'assets/icons/thank_you.png';
   static const String iconsTwoForwardArrows =
       'assets/icons/two_forward_arrows.png';
   static const String imagesArrowDown = 'assets/images/arrow-down.png';

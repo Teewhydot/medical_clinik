@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:medical_clinik/clinik_app/presentation/widgets/constants/constants.dart';
 import 'package:medical_clinik/generated/assets.dart';
 
@@ -15,22 +16,42 @@ class _DoctorsDetailsPageState extends State<DoctorsDetailsPage> {
     double fem = MediaQuery.of(context).size.width / baseWidth;
     final List<int> dates = List.generate(31, (index) => index++);
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        leading: const Icon(
-          Icons.arrow_back_ios,
-          color: kDarkGrey,
-        ),
-        elevation: 0,
-      ),
+      // appBar: AppBar(
+      //   backgroundColor: Colors.white,
+      //   leading: const Icon(
+      //     Icons.arrow_back_ios,
+      //     color: kDarkGrey,
+      //   ),
+      //   elevation: 0,
+      // ),
       backgroundColor: kScaffoldColor,
       body: SingleChildScrollView(
-          child: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.only(left: 10, right: 10),
+          child: AnnotatedRegion<SystemUiOverlayStyle>(
+        value: const SystemUiOverlayStyle(
+          statusBarColor: Colors.white,
+        ),
+        child: SafeArea(
           child: Column(
             children: [
-              DoctorCard(fem: fem),
+              Container(
+                color: Colors.white,
+                width: double.infinity,
+                height: 50,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    addHorizontalSpacing(10),
+                    const Icon(
+                      Icons.arrow_back_ios,
+                      color: kDarkGrey,
+                    ),
+                  ],
+                ),
+              ),
+              DoctorCard(
+                fem: fem,
+                color: Colors.white,
+              ),
               CancelAVisitWidget(
                 fem: fem,
                 text: 'Cancel appointment',
@@ -39,175 +60,199 @@ class _DoctorsDetailsPageState extends State<DoctorsDetailsPage> {
               addVerticalSpacing(20),
               DoctorStats(fem: fem),
               addVerticalSpacing(30),
-              const LeftAlignedText(
-                text: 'Schedule',
-              ),
-              SizedBox(
-                height: 79 * fem,
-                child: ListView.builder(
-                    itemCount: dates.length,
-                    shrinkWrap: true,
-                    scrollDirection: Axis.horizontal,
-                    physics: const BouncingScrollPhysics(),
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.only(top: 10, right: 5),
-                        child: ReusableContainer(
-                            fem: fem,
-                            width: 75,
-                            height: 75,
-                            borderRadius: 10,
-                            child: Text('March ${dates[index]}')),
-                      );
-                    }),
-              ),
-              addVerticalSpacing(30),
-              const LeftAlignedText(
-                text: 'Time',
-              ),
-              Wrap(
-                alignment: WrapAlignment.start,
-                runSpacing: 10,
-                spacing: 20 * fem,
-                direction: Axis.horizontal,
-                children: [
-                  ReusableContainer(
-                    fem: fem,
-                    width: 83 * fem,
-                    height: 42 * fem,
-                    borderRadius: 10,
-                    child: Text(
-                      '11:00',
-                      style: kHeaderTextStyleBlack.copyWith(fontSize: 14 * fem),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    const LeftAlignedText(
+                      text: 'Schedule',
                     ),
-                  ),
-                  ReusableContainer(
-                    fem: fem,
-                    width: 83 * fem,
-                    height: 42 * fem,
-                    borderRadius: 10,
-                    child: Text(
-                      '12:00',
-                      style: kHeaderTextStyleBlack.copyWith(fontSize: 14 * fem),
+                    SizedBox(
+                      height: 79 * fem,
+                      child: ListView.builder(
+                          itemCount: dates.length,
+                          shrinkWrap: true,
+                          scrollDirection: Axis.horizontal,
+                          physics: const BouncingScrollPhysics(),
+                          itemBuilder: (context, index) {
+                            return Padding(
+                              padding: const EdgeInsets.only(top: 10, right: 5),
+                              child: ReusableContainer(
+                                  fem: fem,
+                                  width: 75,
+                                  height: 75,
+                                  borderRadius: 10,
+                                  color: kDarkGreyShade400,
+                                  child: Text('March ${dates[index]}')),
+                            );
+                          }),
                     ),
-                  ),
-                  ReusableContainer(
-                    fem: fem,
-                    width: 83 * fem,
-                    height: 42 * fem,
-                    borderRadius: 10,
-                    child: Text(
-                      '12:00',
-                      style: kHeaderTextStyleBlack.copyWith(fontSize: 14 * fem),
+                    addVerticalSpacing(30),
+                    const LeftAlignedText(
+                      text: 'Time',
                     ),
-                  ),
-                  ReusableContainer(
-                    fem: fem,
-                    width: 83 * fem,
-                    height: 42 * fem,
-                    borderRadius: 10,
-                    child: Text(
-                      '12:00',
-                      style: kHeaderTextStyleBlack.copyWith(fontSize: 14 * fem),
+                    Wrap(
+                      alignment: WrapAlignment.start,
+                      runSpacing: 10,
+                      spacing: 20 * fem,
+                      direction: Axis.horizontal,
+                      children: [
+                        ReusableContainer(
+                          fem: fem,
+                          width: 83 * fem,
+                          height: 42 * fem,
+                          borderRadius: 10,
+                          color: kDarkGreyShade400,
+                          child: Text(
+                            '11:00',
+                            style: kHeaderTextStyleBlack.copyWith(
+                                fontSize: 14 * fem),
+                          ),
+                        ),
+                        ReusableContainer(
+                          fem: fem,
+                          width: 83 * fem,
+                          height: 42 * fem,
+                          borderRadius: 10,
+                          color: kDarkGreyShade400,
+                          child: Text(
+                            '12:00',
+                            style: kHeaderTextStyleBlack.copyWith(
+                                fontSize: 14 * fem),
+                          ),
+                        ),
+                        ReusableContainer(
+                          fem: fem,
+                          width: 83 * fem,
+                          height: 42 * fem,
+                          borderRadius: 10,
+                          color: kDarkGreyShade400,
+                          child: Text(
+                            '12:00',
+                            style: kHeaderTextStyleBlack.copyWith(
+                                fontSize: 14 * fem),
+                          ),
+                        ),
+                        ReusableContainer(
+                          fem: fem,
+                          width: 83 * fem,
+                          height: 42 * fem,
+                          borderRadius: 10,
+                          color: kDarkGreyShade400,
+                          child: Text(
+                            '12:00',
+                            style: kHeaderTextStyleBlack.copyWith(
+                                fontSize: 14 * fem),
+                          ),
+                        ),
+                        ReusableContainer(
+                          fem: fem,
+                          width: 83 * fem,
+                          height: 42 * fem,
+                          borderRadius: 10,
+                          color: kDarkGreyShade400,
+                          child: Text(
+                            '12:00',
+                            style: kHeaderTextStyleBlack.copyWith(
+                                fontSize: 14 * fem),
+                          ),
+                        ),
+                        ReusableContainer(
+                          fem: fem,
+                          width: 83 * fem,
+                          height: 42 * fem,
+                          color: kDarkGreyShade400,
+                          borderRadius: 10,
+                          child: Text(
+                            '12:00',
+                            style: kHeaderTextStyleBlack.copyWith(
+                                fontSize: 14 * fem),
+                          ),
+                        ),
+                        ReusableContainer(
+                          fem: fem,
+                          width: 83 * fem,
+                          height: 42 * fem,
+                          borderRadius: 10,
+                          color: kDarkGreyShade400,
+                          child: Text(
+                            '12:00',
+                            style: kHeaderTextStyleBlack.copyWith(
+                                fontSize: 14 * fem),
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
-                  ReusableContainer(
-                    fem: fem,
-                    width: 83 * fem,
-                    height: 42 * fem,
-                    borderRadius: 10,
-                    child: Text(
-                      '12:00',
-                      style: kHeaderTextStyleBlack.copyWith(fontSize: 14 * fem),
+                    addVerticalSpacing(30),
+                    CancelAVisitWidget(
+                      fem: fem,
+                      text: 'Make an appointment',
+                      color: kAccentPrimaryGreen,
                     ),
-                  ),
-                  ReusableContainer(
-                    fem: fem,
-                    width: 83 * fem,
-                    height: 42 * fem,
-                    borderRadius: 10,
-                    child: Text(
-                      '12:00',
-                      style: kHeaderTextStyleBlack.copyWith(fontSize: 14 * fem),
+                    addVerticalSpacing(20),
+                    const LeftAlignedText(
+                      text: 'About the doctor',
                     ),
-                  ),
-                  ReusableContainer(
-                    fem: fem,
-                    width: 83 * fem,
-                    height: 42 * fem,
-                    borderRadius: 10,
-                    child: Text(
-                      '12:00',
-                      style: kHeaderTextStyleBlack.copyWith(fontSize: 14 * fem),
+                    addVerticalSpacing(10),
+                    ReusableContainer(
+                      fem: fem,
+                      width: 375,
+                      height: 150,
+                      borderRadius: 10,
+                      color: kScaffoldColor,
+                      child: Text(
+                        'Dr. John Doe is a board certified physician with over 10 years of experience in the field of medicine. He is a graduate of the University of California, San Francisco, School of Medicine. He completed his residency in Internal Medicine at the University of California, San Francisco, Medical Center. He is a member of the American College of Physicians and the American Medical Association.',
+                        style: kSubHeaderTextStyleGrey.copyWith(
+                            fontSize: 14 * fem),
+                      ),
                     ),
-                  ),
-                ],
-              ),
-              addVerticalSpacing(30),
-              CancelAVisitWidget(
-                fem: fem,
-                text: 'Make an appointment',
-                color: kAccentPrimaryGreen,
-              ),
-              addVerticalSpacing(20),
-              const LeftAlignedText(
-                text: 'About the doctor',
-              ),
-              addVerticalSpacing(10),
-              ReusableContainer(
-                fem: fem,
-                width: 375,
-                height: 150,
-                borderRadius: 10,
-                child: Text(
-                  'Dr. John Doe is a board certified physician with over 10 years of experience in the field of medicine. He is a graduate of the University of California, San Francisco, School of Medicine. He completed his residency in Internal Medicine at the University of California, San Francisco, Medical Center. He is a member of the American College of Physicians and the American Medical Association.',
-                  style: kSubHeaderTextStyleGrey.copyWith(fontSize: 14 * fem),
+                    const LeftAlignedText(text: "Location"),
+                    addVerticalSpacing(20),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Image.asset(
+                              Assets.imagesIconLocation,
+                              width: 24,
+                              height: 24,
+                            ),
+                            addHorizontalSpacing(10),
+                            SizedBox(
+                              width: 147,
+                              child: Text(
+                                '''3891 Ranchview Dr. Richardson, San Francisco 62639''',
+                                style: kSubHeaderTextStyleGrey,
+                              ),
+                            )
+                          ],
+                        ),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Image.asset(
+                              Assets.imagesIconHospital,
+                              width: 24,
+                              height: 24,
+                            ),
+                            addHorizontalSpacing(10),
+                            SizedBox(
+                              width: 147,
+                              child: Text(
+                                '''Jane Cooper Medical College''',
+                                style: kSubHeaderTextStyleGrey,
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                    addVerticalSpacing(20),
+                  ],
                 ),
               ),
-              const LeftAlignedText(text: "Location"),
-              addVerticalSpacing(20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Image.asset(
-                        Assets.imagesIconLocation,
-                        width: 24,
-                        height: 24,
-                      ),
-                      addHorizontalSpacing(10),
-                      SizedBox(
-                        width: 147,
-                        child: Text(
-                          '''3891 Ranchview Dr. Richardson, San Francisco 62639''',
-                          style: kSubHeaderTextStyleGrey,
-                        ),
-                      )
-                    ],
-                  ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Image.asset(
-                        Assets.imagesIconHospital,
-                        width: 24,
-                        height: 24,
-                      ),
-                      addHorizontalSpacing(10),
-                      SizedBox(
-                        width: 147,
-                        child: Text(
-                          '''Jane Cooper Medical College''',
-                          style: kSubHeaderTextStyleGrey,
-                        ),
-                      )
-                    ],
-                  ),
-                ],
-              ),
-              addVerticalSpacing(20),
             ],
           ),
         ),
@@ -223,6 +268,7 @@ class ReusableContainer extends StatelessWidget {
       required this.width,
       required this.height,
       required this.child,
+      required this.color,
       required this.borderRadius});
 
   final double fem;
@@ -230,6 +276,7 @@ class ReusableContainer extends StatelessWidget {
   final double width;
   final Widget child;
   final double borderRadius;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -237,7 +284,7 @@ class ReusableContainer extends StatelessWidget {
       height: height * fem,
       width: width * fem,
       decoration: BoxDecoration(
-        color: kDarkGreyShade400,
+        color: color,
         borderRadius: BorderRadius.circular(borderRadius * fem),
       ),
       child: Center(child: child),
@@ -300,6 +347,7 @@ class DoctorStats extends StatelessWidget {
               fem: fem,
               height: 58 * fem,
               width: 117 * fem,
+              color: kDarkGreyShade400,
               borderRadius: 10,
               child: Center(
                 child: Text(
@@ -315,6 +363,7 @@ class DoctorStats extends StatelessWidget {
               height: 58 * fem,
               width: 117 * fem,
               borderRadius: 10,
+              color: kDarkGreyShade400,
               child: Center(
                 child: Text(
                   '+8yrs',
@@ -329,6 +378,7 @@ class DoctorStats extends StatelessWidget {
               height: 58 * fem,
               width: 117 * fem,
               borderRadius: 10,
+              color: kDarkGreyShade400,
               child: Center(
                 child: Center(
                   child: Row(
@@ -404,16 +454,18 @@ class DoctorCard extends StatelessWidget {
   const DoctorCard({
     super.key,
     required this.fem,
+    required this.color,
   });
 
   final double fem;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.only(
+      decoration: BoxDecoration(
+        color: color,
+        borderRadius: const BorderRadius.only(
           bottomLeft: Radius.circular(20),
           bottomRight: Radius.circular(20),
         ),
