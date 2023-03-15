@@ -31,7 +31,11 @@ class _DoctorsDetailsPageState extends State<DoctorsDetailsPage> {
           child: Column(
             children: [
               DoctorCard(fem: fem),
-              CancelAVisitWidget(fem: fem),
+              CancelAVisitWidget(
+                fem: fem,
+                text: 'Cancel appointment',
+                color: kDarkGrey,
+              ),
               addVerticalSpacing(20),
               DoctorStats(fem: fem),
               addVerticalSpacing(30),
@@ -140,6 +144,12 @@ class _DoctorsDetailsPageState extends State<DoctorsDetailsPage> {
                 ],
               ),
               addVerticalSpacing(30),
+              CancelAVisitWidget(
+                fem: fem,
+                text: 'Make an appointment',
+                color: kAccentPrimaryGreen,
+              ),
+              addVerticalSpacing(20),
               const LeftAlignedText(
                 text: 'About the doctor',
               ),
@@ -154,6 +164,50 @@ class _DoctorsDetailsPageState extends State<DoctorsDetailsPage> {
                   style: kSubHeaderTextStyleGrey.copyWith(fontSize: 14 * fem),
                 ),
               ),
+              const LeftAlignedText(text: "Location"),
+              addVerticalSpacing(20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Image.asset(
+                        Assets.imagesIconLocation,
+                        width: 24,
+                        height: 24,
+                      ),
+                      addHorizontalSpacing(10),
+                      SizedBox(
+                        width: 147,
+                        child: Text(
+                          '''3891 Ranchview Dr. Richardson, San Francisco 62639''',
+                          style: kSubHeaderTextStyleGrey,
+                        ),
+                      )
+                    ],
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Image.asset(
+                        Assets.imagesIconHospital,
+                        width: 24,
+                        height: 24,
+                      ),
+                      addHorizontalSpacing(10),
+                      SizedBox(
+                        width: 147,
+                        child: Text(
+                          '''Jane Cooper Medical College''',
+                          style: kSubHeaderTextStyleGrey,
+                        ),
+                      )
+                    ],
+                  ),
+                ],
+              ),
+              addVerticalSpacing(20),
             ],
           ),
         ),
@@ -304,9 +358,13 @@ class CancelAVisitWidget extends StatelessWidget {
   const CancelAVisitWidget({
     super.key,
     required this.fem,
+    required this.color,
+    required this.text,
   });
 
   final double fem;
+  final Color color;
+  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -315,7 +373,7 @@ class CancelAVisitWidget extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.fromLTRB(18 * fem, 18 * fem, 18 * fem, 17 * fem),
         decoration: BoxDecoration(
-          color: kDarkGrey,
+          color: color,
           borderRadius: BorderRadius.circular(10 * fem),
         ),
         child: Row(
@@ -325,7 +383,7 @@ class CancelAVisitWidget extends StatelessWidget {
               children: [
                 DotWidget(fem: fem),
                 Text(
-                  'Сancel a visit',
+                  text,
                   style: kHeaderTextStyleWhite,
                 ),
               ],
