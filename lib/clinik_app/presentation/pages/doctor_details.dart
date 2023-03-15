@@ -13,7 +13,7 @@ class _DoctorsDetailsPageState extends State<DoctorsDetailsPage> {
   @override
   Widget build(BuildContext context) {
     double fem = MediaQuery.of(context).size.width / baseWidth;
-
+    final List<int> dates = List.generate(31, (index) => index++);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -26,273 +26,476 @@ class _DoctorsDetailsPageState extends State<DoctorsDetailsPage> {
       backgroundColor: kScaffoldColor,
       body: SingleChildScrollView(
           child: SafeArea(
-        child: Column(
-          children: [
-            Container(
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(20),
-                  bottomRight: Radius.circular(20),
-                ),
+        child: Padding(
+          padding: const EdgeInsets.only(left: 10, right: 10),
+          child: Column(
+            children: [
+              DoctorCard(fem: fem),
+              CancelAVisitWidget(fem: fem),
+              addVerticalSpacing(20),
+              DoctorStats(fem: fem),
+              addVerticalSpacing(30),
+              const LeftAlignedText(
+                text: 'Schedule',
               ),
-              margin: EdgeInsets.fromLTRB(2 * fem, 0 * fem, 0 * fem, 0 * fem),
-              height: 120 * fem,
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              SizedBox(
+                height: 79 * fem,
+                child: ListView.builder(
+                    itemCount: dates.length,
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                    physics: const BouncingScrollPhysics(),
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.only(top: 10, right: 5),
+                        child: ReusableContainer(
+                            fem: fem,
+                            width: 75,
+                            height: 75,
+                            borderRadius: 10,
+                            child: Text('March ${dates[index]}')),
+                      );
+                    }),
+              ),
+              addVerticalSpacing(30),
+              const LeftAlignedText(
+                text: 'Time',
+              ),
+              Wrap(
+                alignment: WrapAlignment.start,
+                runSpacing: 10,
+                spacing: 20 * fem,
+                direction: Axis.horizontal,
                 children: [
-                  Container(
-                    margin: EdgeInsets.fromLTRB(
-                        0 * fem, 0 * fem, 18 * fem, 0 * fem),
-                    padding: EdgeInsets.fromLTRB(
-                        0 * fem, 74 * fem, 0 * fem, 0 * fem),
-                    width: 100 * fem,
-                    height: 100 * fem,
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: AssetImage(
-                          Assets.imagesImageDrEleanorPena,
-                        ),
-                      ),
-                    ),
-                    // child: Container(
-                    //   // Hbn (9:899)
-                    //   padding: EdgeInsets.fromLTRB(
-                    //       6 * fem, 5 * fem, 8 * fem, 4 * fem),
-                    //   width: 51 * fem,
-                    //   height: 26,
-                    //   decoration: BoxDecoration(
-                    //     color: Colors.white,
-                    //     borderRadius: BorderRadius.only(
-                    //       topRight: Radius.circular(6 * fem),
-                    //     ),
-                    //   ),
-                    //   child: Row(
-                    //     crossAxisAlignment: CrossAxisAlignment.center,
-                    //     children: [
-                    //       Container(
-                    //         margin: EdgeInsets.fromLTRB(
-                    //             0 * fem, 0 * fem, 3.58 * fem, 0.1 * fem),
-                    //         width: 11.42 * fem,
-                    //         height: 10.9 * fem,
-                    //         child: Image.asset(
-                    //           Assets.imagesIconStar,
-                    //           width: 11.42 * fem,
-                    //           height: 10.9 * fem,
-                    //         ),
-                    //       ),
-                    //       Text(
-                    //         // FS8 (9:901)
-                    //         '4.8',
-                    //         style: kSubHeaderTextStyleGrey,
-                    //       ),
-                    //     ],
-                    //   ),
-                    // ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.fromLTRB(
-                        0 * fem, 0 * fem, 64 * fem, 0 * fem),
-                    width: 154 * fem,
-                    height: double.infinity,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          margin: EdgeInsets.fromLTRB(
-                              0 * fem, 0 * fem, 0 * fem, 2 * fem),
-                          child: Text(
-                            'Dr. Eleanor',
-                            style: kHeaderTextStyleBlack.copyWith(
-                              fontSize: 18 * fem,
-                            ),
-                          ),
-                        ),
-                        addVerticalSpacing(10),
-                        Text('Pediatrics',
-                            style: kSubHeaderTextStyleGrey.copyWith(
-                              fontSize: 14 * fem,
-                            )),
-                        addVerticalSpacing(10),
-                        Container(
-                          margin: EdgeInsets.fromLTRB(
-                              0 * fem, 0 * fem, 30 * fem, 0 * fem),
-                          width: double.infinity,
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Container(
-                                margin: EdgeInsets.fromLTRB(
-                                    0 * fem, 0 * fem, 14 * fem, 0 * fem),
-                                width: 40 * fem,
-                                height: 40 * fem,
-                                child: Image.asset(
-                                  Assets.iconsChat,
-                                  width: 40 * fem,
-                                  height: 40 * fem,
-                                ),
-                              ),
-                              SizedBox(
-                                width: 40 * fem,
-                                height: 40 * fem,
-                                child: Image.asset(
-                                  Assets.iconsCall,
-                                  width: 40 * fem,
-                                  height: 40 * fem,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
+                  ReusableContainer(
+                    fem: fem,
+                    width: 83 * fem,
+                    height: 42 * fem,
+                    borderRadius: 10,
+                    child: Text(
+                      '11:00',
+                      style: kHeaderTextStyleBlack.copyWith(fontSize: 14 * fem),
                     ),
                   ),
-                  Container(
-                    margin:
-                        EdgeInsets.fromLTRB(0 * fem, 9 * fem, 0 * fem, 3 * fem),
-                    height: double.infinity,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Container(
-                          margin: EdgeInsets.fromLTRB(
-                              0 * fem, 0 * fem, 0 * fem, 54 * fem),
-                          width: 26 * fem,
-                          height: 6 * fem,
-                          child: Image.asset(
-                            Assets.imagesIconEllipses,
-                            width: 26 * fem,
-                            height: 6 * fem,
-                          ),
-                        ),
-                        Text(
-                          '\$80',
-                          style: kSubHeaderTextStyleGrey.copyWith(
-                              fontSize: 28 * fem, color: kDarkGrey),
-                        ),
-                      ],
+                  ReusableContainer(
+                    fem: fem,
+                    width: 83 * fem,
+                    height: 42 * fem,
+                    borderRadius: 10,
+                    child: Text(
+                      '12:00',
+                      style: kHeaderTextStyleBlack.copyWith(fontSize: 14 * fem),
+                    ),
+                  ),
+                  ReusableContainer(
+                    fem: fem,
+                    width: 83 * fem,
+                    height: 42 * fem,
+                    borderRadius: 10,
+                    child: Text(
+                      '12:00',
+                      style: kHeaderTextStyleBlack.copyWith(fontSize: 14 * fem),
+                    ),
+                  ),
+                  ReusableContainer(
+                    fem: fem,
+                    width: 83 * fem,
+                    height: 42 * fem,
+                    borderRadius: 10,
+                    child: Text(
+                      '12:00',
+                      style: kHeaderTextStyleBlack.copyWith(fontSize: 14 * fem),
+                    ),
+                  ),
+                  ReusableContainer(
+                    fem: fem,
+                    width: 83 * fem,
+                    height: 42 * fem,
+                    borderRadius: 10,
+                    child: Text(
+                      '12:00',
+                      style: kHeaderTextStyleBlack.copyWith(fontSize: 14 * fem),
+                    ),
+                  ),
+                  ReusableContainer(
+                    fem: fem,
+                    width: 83 * fem,
+                    height: 42 * fem,
+                    borderRadius: 10,
+                    child: Text(
+                      '12:00',
+                      style: kHeaderTextStyleBlack.copyWith(fontSize: 14 * fem),
+                    ),
+                  ),
+                  ReusableContainer(
+                    fem: fem,
+                    width: 83 * fem,
+                    height: 42 * fem,
+                    borderRadius: 10,
+                    child: Text(
+                      '12:00',
+                      style: kHeaderTextStyleBlack.copyWith(fontSize: 14 * fem),
                     ),
                   ),
                 ],
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Container(
-                padding:
-                    EdgeInsets.fromLTRB(18 * fem, 18 * fem, 18 * fem, 17 * fem),
-                decoration: BoxDecoration(
-                  color: kDarkGrey,
-                  borderRadius: BorderRadius.circular(10 * fem),
+              addVerticalSpacing(30),
+              const LeftAlignedText(
+                text: 'About the doctor',
+              ),
+              addVerticalSpacing(10),
+              ReusableContainer(
+                fem: fem,
+                width: 375,
+                height: 150,
+                borderRadius: 10,
+                child: Text(
+                  'Dr. John Doe is a board certified physician with over 10 years of experience in the field of medicine. He is a graduate of the University of California, San Francisco, School of Medicine. He completed his residency in Internal Medicine at the University of California, San Francisco, Medical Center. He is a member of the American College of Physicians and the American Medical Association.',
+                  style: kSubHeaderTextStyleGrey.copyWith(fontSize: 14 * fem),
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        DotWidget(fem: fem),
-                        Text(
-                          'Сancel a visit',
-                          style: kHeaderTextStyleWhite,
-                        ),
-                      ],
-                    ),
-                    Image.asset(
-                      Assets.iconsTwoForwardArrows,
-                      width: 20,
-                      height: 14,
-                    )
-                  ],
+              ),
+            ],
+          ),
+        ),
+      )),
+    );
+  }
+}
+
+class ReusableContainer extends StatelessWidget {
+  const ReusableContainer(
+      {super.key,
+      required this.fem,
+      required this.width,
+      required this.height,
+      required this.child,
+      required this.borderRadius});
+
+  final double fem;
+  final double height;
+  final double width;
+  final Widget child;
+  final double borderRadius;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: height * fem,
+      width: width * fem,
+      decoration: BoxDecoration(
+        color: kDarkGreyShade400,
+        borderRadius: BorderRadius.circular(borderRadius * fem),
+      ),
+      child: Center(child: child),
+    );
+  }
+}
+
+class LeftAlignedText extends StatelessWidget {
+  const LeftAlignedText({
+    super.key,
+    required this.text,
+  });
+  final String text;
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.centerLeft,
+      child: Text(
+        text,
+        style: kHeaderTextStyleBlack,
+      ),
+    );
+  }
+}
+
+class DoctorStats extends StatelessWidget {
+  const DoctorStats({
+    super.key,
+    required this.fem,
+  });
+
+  final double fem;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Text(
+              'Patients',
+              style: kSubHeaderTextStyleGrey,
+            ),
+            Text(
+              'Experience',
+              style: kSubHeaderTextStyleGrey,
+            ),
+            Text(
+              'Ratings',
+              style: kSubHeaderTextStyleGrey,
+            )
+          ],
+        ),
+        addVerticalSpacing(10),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            ReusableContainer(
+              fem: fem,
+              height: 58 * fem,
+              width: 117 * fem,
+              borderRadius: 10,
+              child: Center(
+                child: Text(
+                  '+423',
+                  style: kHeaderTextStyleBlack.copyWith(
+                    fontSize: 18 * fem,
+                  ),
                 ),
               ),
             ),
-            addVerticalSpacing(20),
-            Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Text(
-                      'Patients',
-                      style: kSubHeaderTextStyleGrey,
-                    ),
-                    Text(
-                      'Experience',
-                      style: kSubHeaderTextStyleGrey,
-                    ),
-                    Text(
-                      'Ratings',
-                      style: kSubHeaderTextStyleGrey,
-                    )
-                  ],
+            ReusableContainer(
+              fem: fem,
+              height: 58 * fem,
+              width: 117 * fem,
+              borderRadius: 10,
+              child: Center(
+                child: Text(
+                  '+8yrs',
+                  style: kHeaderTextStyleBlack.copyWith(
+                    fontSize: 18 * fem,
+                  ),
                 ),
-                addVerticalSpacing(10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Container(
-                      height: 58,
-                      width: 117 * fem,
-                      decoration: BoxDecoration(
-                        color: kDarkGreyShade400,
-                        borderRadius: BorderRadius.circular(10 * fem),
-                      ),
-                      child: Center(
-                        child: Text(
-                          '+423',
-                          style: kHeaderTextStyleBlack.copyWith(
-                            fontSize: 18 * fem,
-                          ),
+              ),
+            ),
+            ReusableContainer(
+              fem: fem,
+              height: 58 * fem,
+              width: 117 * fem,
+              borderRadius: 10,
+              child: Center(
+                child: Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        '4.8',
+                        style: kHeaderTextStyleBlack.copyWith(
+                          fontSize: 18 * fem,
                         ),
                       ),
-                    ),
-                    Container(
-                      height: 58,
-                      width: 117 * fem,
-                      decoration: BoxDecoration(
-                        color: kDarkGreyShade400,
-                        borderRadius: BorderRadius.circular(10 * fem),
-                      ),
-                      child: Center(
-                        child: Text(
-                          '+8Yrs',
-                          style: kHeaderTextStyleBlack.copyWith(
-                            fontSize: 18 * fem,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      height: 58,
-                      width: 117 * fem,
-                      decoration: BoxDecoration(
-                        color: kDarkGreyShade400,
-                        borderRadius: BorderRadius.circular(10 * fem),
-                      ),
-                      child: Center(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              '4.8',
-                              style: kHeaderTextStyleBlack.copyWith(
-                                fontSize: 18 * fem,
-                              ),
-                            ),
-                            Icon(Icons.star,
-                                color: kAccentPrimaryPurple, size: 20),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
+                      const Icon(Icons.star,
+                          color: kAccentPrimaryPurple, size: 20),
+                    ],
+                  ),
                 ),
-              ],
+              ),
             ),
           ],
         ),
-      )),
+      ],
+    );
+  }
+}
+
+class CancelAVisitWidget extends StatelessWidget {
+  const CancelAVisitWidget({
+    super.key,
+    required this.fem,
+  });
+
+  final double fem;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(15.0),
+      child: Container(
+        padding: EdgeInsets.fromLTRB(18 * fem, 18 * fem, 18 * fem, 17 * fem),
+        decoration: BoxDecoration(
+          color: kDarkGrey,
+          borderRadius: BorderRadius.circular(10 * fem),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              children: [
+                DotWidget(fem: fem),
+                Text(
+                  'Сancel a visit',
+                  style: kHeaderTextStyleWhite,
+                ),
+              ],
+            ),
+            Image.asset(
+              Assets.iconsTwoForwardArrows,
+              width: 20,
+              height: 14,
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class DoctorCard extends StatelessWidget {
+  const DoctorCard({
+    super.key,
+    required this.fem,
+  });
+
+  final double fem;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(20),
+          bottomRight: Radius.circular(20),
+        ),
+      ),
+      margin: EdgeInsets.fromLTRB(2 * fem, 0 * fem, 0 * fem, 0 * fem),
+      height: 120 * fem,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 18 * fem, 0 * fem),
+            padding: EdgeInsets.fromLTRB(0 * fem, 74 * fem, 0 * fem, 0 * fem),
+            width: 100 * fem,
+            height: 100 * fem,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                image: AssetImage(
+                  Assets.imagesImageDrEleanorPena,
+                ),
+              ),
+            ),
+            // child: Container(
+            //   // Hbn (9:899)
+            //   padding: EdgeInsets.fromLTRB(
+            //       6 * fem, 5 * fem, 8 * fem, 4 * fem),
+            //   width: 51 * fem,
+            //   height: 26,
+            //   decoration: BoxDecoration(
+            //     color: Colors.white,
+            //     borderRadius: BorderRadius.only(
+            //       topRight: Radius.circular(6 * fem),
+            //     ),
+            //   ),
+            //   child: Row(
+            //     crossAxisAlignment: CrossAxisAlignment.center,
+            //     children: [
+            //       Container(
+            //         margin: EdgeInsets.fromLTRB(
+            //             0 * fem, 0 * fem, 3.58 * fem, 0.1 * fem),
+            //         width: 11.42 * fem,
+            //         height: 10.9 * fem,
+            //         child: Image.asset(
+            //           Assets.imagesIconStar,
+            //           width: 11.42 * fem,
+            //           height: 10.9 * fem,
+            //         ),
+            //       ),
+            //       Text(
+            //         // FS8 (9:901)
+            //         '4.8',
+            //         style: kSubHeaderTextStyleGrey,
+            //       ),
+            //     ],
+            //   ),
+            // ),
+          ),
+          Container(
+            margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 64 * fem, 0 * fem),
+            width: 154 * fem,
+            height: double.infinity,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  margin:
+                      EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 2 * fem),
+                  child: Text(
+                    'Dr. Eleanor',
+                    style: kHeaderTextStyleBlack.copyWith(
+                      fontSize: 18 * fem,
+                    ),
+                  ),
+                ),
+                addVerticalSpacing(10),
+                Text('Pediatrics',
+                    style: kSubHeaderTextStyleGrey.copyWith(
+                      fontSize: 14 * fem,
+                    )),
+                addVerticalSpacing(10),
+                Container(
+                  margin:
+                      EdgeInsets.fromLTRB(0 * fem, 0 * fem, 30 * fem, 0 * fem),
+                  width: double.infinity,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.fromLTRB(
+                            0 * fem, 0 * fem, 14 * fem, 0 * fem),
+                        width: 40 * fem,
+                        height: 40 * fem,
+                        child: Image.asset(
+                          Assets.iconsChat,
+                          width: 40 * fem,
+                          height: 40 * fem,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 40 * fem,
+                        height: 40 * fem,
+                        child: Image.asset(
+                          Assets.iconsCall,
+                          width: 40 * fem,
+                          height: 40 * fem,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.fromLTRB(0 * fem, 9 * fem, 0 * fem, 3 * fem),
+            height: double.infinity,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Container(
+                  margin:
+                      EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 54 * fem),
+                  width: 26 * fem,
+                  height: 6 * fem,
+                  child: Image.asset(
+                    Assets.imagesIconEllipses,
+                    width: 26 * fem,
+                    height: 6 * fem,
+                  ),
+                ),
+                Text(
+                  '\$80',
+                  style: kSubHeaderTextStyleGrey.copyWith(
+                      fontSize: 28 * fem, color: kDarkGrey),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
