@@ -48,153 +48,163 @@ class BookingSuccessPage extends StatelessWidget {
                   ),
                 ),
                 addVerticalSpacing(20),
-                Container(
-                  height: 74,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: kScaffoldColor,
-                  ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      Container(
+                        height: 74,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: kScaffoldColor,
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Image.asset(
-                                  Assets.imagesImageDrEleanorPena,
-                                  width: 36,
-                                  height: 36,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 5),
-                                  child: Column(
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Row(
                                     crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                        CrossAxisAlignment.center,
                                     children: [
-                                      const Text(
-                                        'Dr Elena',
+                                      Image.asset(
+                                        Assets.imagesImageDrEleanorPena,
+                                        width: 36,
+                                        height: 36,
                                       ),
-                                      Text(
-                                        'Mad Scientist',
-                                        style: kSubHeaderTextStyleGrey,
-                                      )
+                                      Padding(
+                                        padding: const EdgeInsets.only(left: 5),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            const Text(
+                                              'Dr Elena',
+                                            ),
+                                            Text(
+                                              'Mad Scientist',
+                                              style: kSubHeaderTextStyleGrey,
+                                            )
+                                          ],
+                                        ),
+                                      ),
                                     ],
                                   ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                addHorizontalSpacing(20),
-                                const Text(
-                                  "(121 reviews)",
-                                ),
-                                const Icon(
-                                  Icons.star,
-                                  color: kAccentPrimaryPurple,
-                                ),
-                                const Text(
-                                  '4.9',
-                                ),
-                              ],
+                                  Row(
+                                    children: [
+                                      addHorizontalSpacing(20),
+                                      const Text(
+                                        "(121 reviews)",
+                                      ),
+                                      const Icon(
+                                        Icons.star,
+                                        color: kAccentPrimaryPurple,
+                                      ),
+                                      const Text(
+                                        '4.9',
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
                           ],
                         ),
                       ),
+                      addVerticalSpacing(29),
+                      Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const LeftAlignedText(text: 'Date:'),
+                                  addVerticalSpacing(10),
+                                  Text(
+                                    '26, March 2023',
+                                    style: kSubHeaderTextStyleGrey,
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      const LeftAlignedText(text: 'Time:'),
+                                      addVerticalSpacing(10),
+                                      Text(
+                                        '16:11',
+                                        style: kSubHeaderTextStyleGrey,
+                                      ),
+                                    ],
+                                  ),
+                                  addHorizontalSpacing(30),
+                                ],
+                              )
+                            ],
+                          ),
+                          addVerticalSpacing(19),
+                          const LeftAlignedText(text: "Location"),
+                          addVerticalSpacing(20),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Image.asset(
+                                    Assets.imagesIconLocation,
+                                    width: 24,
+                                    height: 24,
+                                  ),
+                                  addHorizontalSpacing(10),
+                                  SizedBox(
+                                    width: 147,
+                                    child: Text(
+                                      '''3891 Ranchview Dr. Richardson, San Francisco 62639''',
+                                      style: kSubHeaderTextStyleGrey,
+                                    ),
+                                  )
+                                ],
+                              ),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Image.asset(
+                                    Assets.imagesIconHospital,
+                                    width: 24,
+                                    height: 24,
+                                  ),
+                                  addHorizontalSpacing(10),
+                                  SizedBox(
+                                    width: 147,
+                                    child: Text(
+                                      '''Jane Cooper Medical College''',
+                                      style: kSubHeaderTextStyleGrey,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ],
+                          ),
+                          addVerticalSpacing(20),
+                        ],
+                      ),
+                      const LeftAlignedText(text: 'Cost: \$ 100'),
+                      addVerticalSpacing(20),
                     ],
                   ),
                 ),
-                addVerticalSpacing(29),
-                Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const LeftAlignedText(text: 'Date:'),
-                            addVerticalSpacing(10),
-                            Text(
-                              '26, March 2023',
-                              style: kSubHeaderTextStyleGrey,
-                            ),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const LeftAlignedText(text: 'Time:'),
-                                addVerticalSpacing(10),
-                                Text(
-                                  '16:11',
-                                  style: kSubHeaderTextStyleGrey,
-                                ),
-                              ],
-                            ),
-                            addHorizontalSpacing(30),
-                          ],
-                        )
-                      ],
-                    ),
-                    addVerticalSpacing(19),
-                    const LeftAlignedText(text: "Location"),
-                    addVerticalSpacing(20),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Image.asset(
-                              Assets.imagesIconLocation,
-                              width: 24,
-                              height: 24,
-                            ),
-                            addHorizontalSpacing(10),
-                            SizedBox(
-                              width: 147,
-                              child: Text(
-                                '''3891 Ranchview Dr. Richardson, San Francisco 62639''',
-                                style: kSubHeaderTextStyleGrey,
-                              ),
-                            )
-                          ],
-                        ),
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Image.asset(
-                              Assets.imagesIconHospital,
-                              width: 24,
-                              height: 24,
-                            ),
-                            addHorizontalSpacing(10),
-                            SizedBox(
-                              width: 147,
-                              child: Text(
-                                '''Jane Cooper Medical College''',
-                                style: kSubHeaderTextStyleGrey,
-                              ),
-                            )
-                          ],
-                        ),
-                      ],
-                    ),
-                    addVerticalSpacing(20),
-                  ],
-                ),
-                const LeftAlignedText(text: 'Cost: \$ 100'),
-                addVerticalSpacing(20),
                 ButtonWidget(
                     fem: fem,
                     color: kAccentPrimaryGreen,

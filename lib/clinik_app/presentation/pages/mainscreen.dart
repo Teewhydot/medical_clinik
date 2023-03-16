@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:medical_clinik/clinik_app/presentation/manager/providers/username_provider.dart';
+import 'package:medical_clinik/clinik_app/presentation/pages/add_new_chat.dart';
+import 'package:medical_clinik/clinik_app/presentation/pages/chat.dart';
 import 'package:medical_clinik/clinik_app/presentation/pages/home_page.dart';
 import 'package:medical_clinik/clinik_app/presentation/widgets/constants/constants.dart';
 import 'package:medical_clinik/clinik_app/presentation/widgets/constants/device_width.dart';
 import 'package:medical_clinik/generated/assets.dart';
+import 'package:provider/provider.dart';
 
-import 'chat.dart';
+import 'create_username.dart';
 import 'profile.dart';
 import 'receipt.dart';
 
@@ -18,15 +22,25 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int pageIndex = 0;
 
-  final pages = [
-    const HomePage(),
-    const Receipt(),
-    const Chat(),
-    const Profile(),
-  ];
-
   @override
   Widget build(BuildContext context) {
+    void awaitCloneNameFromModalPopup(BuildContext context) async {
+      // start the SecondScreen and wait for it to finish with a result
+      await showModalBottomSheet(
+          context: context,
+          builder: (BuildContext context) => const AddNewUserClone());
+    }
+
+    final provider = Provider.of<UserNameProvider>(context);
+
+    final pages = [
+      const HomePage(),
+      const Receipt(),
+      provider.name.isEmpty
+          ? const CreateUserNamePage()
+          : FlashChat(userName: provider.name),
+      const Profile(),
+    ];
     return Scaffold(
       extendBody: true,
       bottomNavigationBar: Container(
@@ -82,13 +96,18 @@ class _MainScreenState extends State<MainScreen> {
                         ))),
               ],
             ),
-            const CircleAvatar(
-              radius: 30,
-              backgroundColor: kAccentPrimaryGreen,
-              child: Icon(
-                Icons.add,
-                color: Colors.white,
-                size: 30,
+            GestureDetector(
+              onTap: () {
+                awaitCloneNameFromModalPopup(context);
+              },
+              child: const CircleAvatar(
+                radius: 30,
+                backgroundColor: kAccentPrimaryGreen,
+                child: Icon(
+                  Icons.add,
+                  color: Colors.white,
+                  size: 30,
+                ),
               ),
             ),
             Column(

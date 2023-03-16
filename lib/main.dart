@@ -1,8 +1,24 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:medical_clinik/clinik_app/presentation/pages/doctor_details.dart';
+import 'package:medical_clinik/clinik_app/presentation/manager/providers/chat_provider.dart';
+import 'package:medical_clinik/clinik_app/presentation/manager/providers/delete_clone_provider.dart';
+import 'package:medical_clinik/clinik_app/presentation/manager/providers/username_provider.dart';
+import 'package:medical_clinik/clinik_app/presentation/pages/mainscreen.dart';
+import 'package:medical_clinik/firebase_options.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+  final userNameFromStorage = sharedPreferences.getString('userName') ?? '';
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(
+        create: (context) => UserNameProvider(userNameFromStorage)),
+    ChangeNotifierProvider(create: (context)=> ChatProvider()),
+    ChangeNotifierProvider(create: (context)=> DeleteCloneProvider()),
+  ], child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -12,7 +28,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: DoctorsDetailsPage(),
+      home: MainScreen(),
     );
   }
 }

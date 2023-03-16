@@ -12,21 +12,22 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  flutter_screenutil: ^5.5.4
   provider: ^6.0.4
   page_transition: "^2.0.9"
   font_awesome_flutter: ^10.2.1
   toast: ^0.3.0
-  firebase_core: ^1.22.0
-  cloud_firestore: ^3.4.7
-  internet_connection_checker: ^0.0.1+4
+  firebase_core: ^2.7.1
+  cloud_firestore: ^4.4.4
+  internet_connection_checker: ^1.0.0+1
   rename: ^2.0.1
   loading_indicator: ^3.1.0
-  intl: ^0.17.0
+  intl: ^0.18.0
   shared_preferences: ^2.0.15
   google_fonts: ^4.0.3
   flag: ^6.0.0
   pin_code_fields: ^7.4.0
+  firebase: ^9.0.3
+  timeago: ^3.4.0
 
 dev_dependencies:
   flutter_test:
