@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medical_clinik/clinik_app/presentation/pages/intro_pages/intro_page_three.dart';
 import 'package:medical_clinik/clinik_app/presentation/widgets/constants/constants.dart';
 import 'package:medical_clinik/clinik_app/presentation/widgets/constants/device_width.dart';
 import 'package:medical_clinik/clinik_app/presentation/widgets/reused_widgets/button_widget.dart';
@@ -141,7 +142,13 @@ class IntroPageTwo extends StatelessWidget {
                   fem: fem,
                   color: kAccentPrimaryGreen,
                   buttonText: 'Continue',
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const IntroPageThree()),
+                    );
+                  },
                 ),
                 addVerticalSpacing(30)
               ],

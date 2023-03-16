@@ -116,18 +116,23 @@ class _SignUpPageState extends State<SignUpPage> {
                   onTap: () {},
                 ),
                 addVerticalSpacing(15),
-                RichText(
-                  text: TextSpan(
-                    style: kSubHeaderTextStyleGrey,
-                    children: [
-                      const TextSpan(
-                        text: 'Already have an account? ',
-                      ),
-                      TextSpan(
-                          text: 'Sign In',
-                          style: kSubHeaderTextStyleGrey.copyWith(
-                              color: kAccentPrimaryGreen)),
-                    ],
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: RichText(
+                    text: TextSpan(
+                      style: kSubHeaderTextStyleGrey,
+                      children: [
+                        const TextSpan(
+                          text: 'Already have an account? ',
+                        ),
+                        TextSpan(
+                            text: 'Sign In',
+                            style: kSubHeaderTextStyleGrey.copyWith(
+                                color: kAccentPrimaryGreen)),
+                      ],
+                    ),
                   ),
                 ),
                 addVerticalSpacing(20)

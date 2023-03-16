@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:medical_clinik/clinik_app/presentation/pages/auth_pages/sign_up.dart';
+import 'package:medical_clinik/clinik_app/presentation/pages/mainscreen.dart';
 import 'package:medical_clinik/clinik_app/presentation/widgets/constants/constants.dart';
 import 'package:medical_clinik/clinik_app/presentation/widgets/reused_widgets/button_widget.dart';
 import 'package:medical_clinik/clinik_app/presentation/widgets/reused_widgets/custom_textfield.dart';
@@ -60,21 +62,36 @@ class SignInPage extends StatelessWidget {
                     fem: fem,
                     color: kAccentPrimaryGreen,
                     buttonText: 'Sign In',
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const MainScreen()),
+                      );
+                    },
                   ),
                   addVerticalSpacing(15),
-                  RichText(
-                    text: TextSpan(
-                      style: kSubHeaderTextStyleGrey,
-                      children: [
-                        const TextSpan(
-                          text: 'Don’t have an account? ',
-                        ),
-                        TextSpan(
-                            text: 'Sign Up',
-                            style: kSubHeaderTextStyleGrey.copyWith(
-                                color: kAccentPrimaryGreen)),
-                      ],
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SignUpPage()),
+                      );
+                    },
+                    child: RichText(
+                      text: TextSpan(
+                        style: kSubHeaderTextStyleGrey,
+                        children: [
+                          const TextSpan(
+                            text: 'Don’t have an account? ',
+                          ),
+                          TextSpan(
+                              text: 'Sign Up',
+                              style: kSubHeaderTextStyleGrey.copyWith(
+                                  color: kAccentPrimaryGreen)),
+                        ],
+                      ),
                     ),
                   ),
                   addVerticalSpacing(20)

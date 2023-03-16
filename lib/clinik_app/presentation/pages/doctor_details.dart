@@ -1,10 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:medical_clinik/clinik_app/presentation/pages/payment_options.dart';
 import 'package:medical_clinik/clinik_app/presentation/widgets/constants/constants.dart';
+import 'package:medical_clinik/clinik_app/presentation/widgets/reused_widgets/date_select_widget.dart';
+import 'package:medical_clinik/clinik_app/presentation/widgets/reused_widgets/time_select_widget.dart';
 import 'package:medical_clinik/generated/assets.dart';
 
 class DoctorsDetailsPage extends StatefulWidget {
-  const DoctorsDetailsPage({Key? key}) : super(key: key);
+  const DoctorsDetailsPage({
+    Key? key,
+    required this.image,
+    required this.name,
+    required this.profession,
+    required this.hasAppointment,
+    required this.rating,
+  }) : super(key: key);
+
+  final String image;
+  final String name;
+  final String profession;
+  final bool hasAppointment;
+  final String rating;
 
   @override
   State<DoctorsDetailsPage> createState() => _DoctorsDetailsPageState();
@@ -14,16 +30,7 @@ class _DoctorsDetailsPageState extends State<DoctorsDetailsPage> {
   @override
   Widget build(BuildContext context) {
     double fem = MediaQuery.of(context).size.width / baseWidth;
-    final List<int> dates = List.generate(31, (index) => index++);
     return Scaffold(
-      // appBar: AppBar(
-      //   backgroundColor: Colors.white,
-      //   leading: const Icon(
-      //     Icons.arrow_back_ios,
-      //     color: kDarkGrey,
-      //   ),
-      //   elevation: 0,
-      // ),
       backgroundColor: kScaffoldColor,
       body: SingleChildScrollView(
           child: AnnotatedRegion<SystemUiOverlayStyle>(
@@ -37,157 +44,80 @@ class _DoctorsDetailsPageState extends State<DoctorsDetailsPage> {
                 color: Colors.white,
                 width: double.infinity,
                 height: 50,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    addHorizontalSpacing(10),
-                    const Icon(
-                      Icons.arrow_back_ios,
-                      color: kDarkGrey,
-                    ),
-                  ],
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      addHorizontalSpacing(10),
+                      const Icon(
+                        Icons.arrow_back_ios,
+                        color: kDarkGrey,
+                      ),
+                    ],
+                  ),
                 ),
               ),
               DoctorCard(
                 fem: fem,
                 color: Colors.white,
+                name: widget.name,
+                profession: widget.profession,
+                image: widget.image,
               ),
-              CancelAVisitWidget(
-                fem: fem,
-                text: 'Cancel appointment',
-                color: kDarkGrey,
+              Visibility(
+                visible: widget.hasAppointment,
+                child: AppointmentWidget(
+                  fem: fem,
+                  text: 'Cancel appointment',
+                  color: kDarkGrey,
+                ),
               ),
               addVerticalSpacing(20),
-              DoctorStats(fem: fem),
+              DoctorStats(
+                fem: fem,
+                rating: widget.rating,
+              ),
               addVerticalSpacing(30),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
                   children: [
-                    const LeftAlignedText(
-                      text: 'Schedule',
-                    ),
-                    SizedBox(
-                      height: 79 * fem,
-                      child: ListView.builder(
-                          itemCount: dates.length,
-                          shrinkWrap: true,
-                          scrollDirection: Axis.horizontal,
-                          physics: const BouncingScrollPhysics(),
-                          itemBuilder: (context, index) {
-                            return Padding(
-                              padding: const EdgeInsets.only(top: 10, right: 5),
-                              child: ReusableContainer(
-                                  fem: fem,
-                                  width: 75,
-                                  height: 75,
-                                  borderRadius: 10,
-                                  color: kDarkGreyShade400,
-                                  child: Text('March ${dates[index]}')),
-                            );
-                          }),
+                    Visibility(
+                      visible: !widget.hasAppointment,
+                      child: Column(
+                        children: [
+                          const LeftAlignedText(
+                            text: 'Schedule',
+                          ),
+                          const SelectDateWidget(),
+                          addVerticalSpacing(30),
+                          const LeftAlignedText(
+                            text: 'Time',
+                          ),
+                          const TimeSelectWidget(),
+                        ],
+                      ),
                     ),
                     addVerticalSpacing(30),
-                    const LeftAlignedText(
-                      text: 'Time',
-                    ),
-                    Wrap(
-                      alignment: WrapAlignment.start,
-                      runSpacing: 10,
-                      spacing: 20 * fem,
-                      direction: Axis.horizontal,
-                      children: [
-                        ReusableContainer(
+                    Visibility(
+                      visible: !widget.hasAppointment,
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const PaymentOptions()));
+                        },
+                        child: AppointmentWidget(
                           fem: fem,
-                          width: 83 * fem,
-                          height: 42 * fem,
-                          borderRadius: 10,
-                          color: kDarkGreyShade400,
-                          child: Text(
-                            '11:00',
-                            style: kHeaderTextStyleBlack.copyWith(
-                                fontSize: 14 * fem),
-                          ),
+                          text: 'Make payment',
+                          color: kAccentPrimaryGreen,
                         ),
-                        ReusableContainer(
-                          fem: fem,
-                          width: 83 * fem,
-                          height: 42 * fem,
-                          borderRadius: 10,
-                          color: kDarkGreyShade400,
-                          child: Text(
-                            '12:00',
-                            style: kHeaderTextStyleBlack.copyWith(
-                                fontSize: 14 * fem),
-                          ),
-                        ),
-                        ReusableContainer(
-                          fem: fem,
-                          width: 83 * fem,
-                          height: 42 * fem,
-                          borderRadius: 10,
-                          color: kDarkGreyShade400,
-                          child: Text(
-                            '12:00',
-                            style: kHeaderTextStyleBlack.copyWith(
-                                fontSize: 14 * fem),
-                          ),
-                        ),
-                        ReusableContainer(
-                          fem: fem,
-                          width: 83 * fem,
-                          height: 42 * fem,
-                          borderRadius: 10,
-                          color: kDarkGreyShade400,
-                          child: Text(
-                            '12:00',
-                            style: kHeaderTextStyleBlack.copyWith(
-                                fontSize: 14 * fem),
-                          ),
-                        ),
-                        ReusableContainer(
-                          fem: fem,
-                          width: 83 * fem,
-                          height: 42 * fem,
-                          borderRadius: 10,
-                          color: kDarkGreyShade400,
-                          child: Text(
-                            '12:00',
-                            style: kHeaderTextStyleBlack.copyWith(
-                                fontSize: 14 * fem),
-                          ),
-                        ),
-                        ReusableContainer(
-                          fem: fem,
-                          width: 83 * fem,
-                          height: 42 * fem,
-                          color: kDarkGreyShade400,
-                          borderRadius: 10,
-                          child: Text(
-                            '12:00',
-                            style: kHeaderTextStyleBlack.copyWith(
-                                fontSize: 14 * fem),
-                          ),
-                        ),
-                        ReusableContainer(
-                          fem: fem,
-                          width: 83 * fem,
-                          height: 42 * fem,
-                          borderRadius: 10,
-                          color: kDarkGreyShade400,
-                          child: Text(
-                            '12:00',
-                            style: kHeaderTextStyleBlack.copyWith(
-                                fontSize: 14 * fem),
-                          ),
-                        ),
-                      ],
-                    ),
-                    addVerticalSpacing(30),
-                    CancelAVisitWidget(
-                      fem: fem,
-                      text: 'Make an appointment',
-                      color: kAccentPrimaryGreen,
+                      ),
                     ),
                     addVerticalSpacing(20),
                     const LeftAlignedText(
@@ -201,7 +131,7 @@ class _DoctorsDetailsPageState extends State<DoctorsDetailsPage> {
                       borderRadius: 10,
                       color: kScaffoldColor,
                       child: Text(
-                        'Dr. John Doe is a board certified physician with over 10 years of experience in the field of medicine. He is a graduate of the University of California, San Francisco, School of Medicine. He completed his residency in Internal Medicine at the University of California, San Francisco, Medical Center. He is a member of the American College of Physicians and the American Medical Association.',
+                        '${widget.name} is a board certified ${widget.profession} with over 10 years of experience in the field of medicine. He is a graduate of the University of California, San Francisco, School of Medicine. He completed his residency in Internal Medicine at the University of California, San Francisco, Medical Center. He is a member of the American College of Physicians and the American Medical Association.',
                         style: kSubHeaderTextStyleGrey.copyWith(
                             fontSize: 14 * fem),
                       ),
@@ -314,10 +244,11 @@ class DoctorStats extends StatelessWidget {
   const DoctorStats({
     super.key,
     required this.fem,
+    required this.rating,
   });
 
   final double fem;
-
+  final String rating;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -385,7 +316,7 @@ class DoctorStats extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        '4.8',
+                        rating,
                         style: kHeaderTextStyleBlack.copyWith(
                           fontSize: 18 * fem,
                         ),
@@ -404,8 +335,8 @@ class DoctorStats extends StatelessWidget {
   }
 }
 
-class CancelAVisitWidget extends StatelessWidget {
-  const CancelAVisitWidget({
+class AppointmentWidget extends StatelessWidget {
+  const AppointmentWidget({
     super.key,
     required this.fem,
     required this.color,
@@ -431,7 +362,10 @@ class CancelAVisitWidget extends StatelessWidget {
           children: [
             Row(
               children: [
-                DotWidget(fem: fem),
+                DotWidget(
+                  fem: fem,
+                  color: Colors.white,
+                ),
                 Text(
                   text,
                   style: kHeaderTextStyleWhite,
@@ -455,10 +389,16 @@ class DoctorCard extends StatelessWidget {
     super.key,
     required this.fem,
     required this.color,
+    required this.name,
+    required this.profession,
+    required this.image,
   });
 
   final double fem;
   final Color color;
+  final String name;
+  final String profession;
+  final String image;
 
   @override
   Widget build(BuildContext context) {
@@ -480,11 +420,11 @@ class DoctorCard extends StatelessWidget {
             padding: EdgeInsets.fromLTRB(0 * fem, 74 * fem, 0 * fem, 0 * fem),
             width: 100 * fem,
             height: 100 * fem,
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: AssetImage(
-                  Assets.imagesImageDrEleanorPena,
+                  image,
                 ),
               ),
             ),
@@ -534,14 +474,14 @@ class DoctorCard extends StatelessWidget {
                   margin:
                       EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 2 * fem),
                   child: Text(
-                    'Dr. Eleanor',
+                    name,
                     style: kHeaderTextStyleBlack.copyWith(
                       fontSize: 18 * fem,
                     ),
                   ),
                 ),
                 addVerticalSpacing(10),
-                Text('Pediatrics',
+                Text(profession,
                     style: kSubHeaderTextStyleGrey.copyWith(
                       fontSize: 14 * fem,
                     )),
@@ -614,9 +554,11 @@ class DotWidget extends StatelessWidget {
   const DotWidget({
     super.key,
     required this.fem,
+    required this.color,
   });
 
   final double fem;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -627,7 +569,7 @@ class DotWidget extends StatelessWidget {
       height: 8 * fem,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(6 * fem),
-        color: Colors.white,
+        color: color,
       ),
     );
   }

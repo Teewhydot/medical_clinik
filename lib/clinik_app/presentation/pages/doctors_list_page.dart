@@ -16,49 +16,56 @@ class ListOfDoctorsPage extends StatelessWidget {
         'profession': 'Dentist',
         'rating': '4.8',
         'image': Assets.imagesImageDrFloydMiles,
-        'reviews': '220'
+        'reviews': '220',
+        'hasAppointment': false,
       },
       {
         'name': 'Dr Anvil',
         'profession': 'Dentist',
         'rating': '3.8',
         'image': Assets.imagesImageDrAnnetteBlack,
-        'reviews': '230'
+        'reviews': '230',
+        'hasAppointment': false,
       },
       {
         'name': 'Dr Mathew',
         'profession': 'Surgeon',
         'rating': '4.8',
         'image': Assets.imagesImageDrEleanorPena,
-        'reviews': '120'
+        'reviews': '120',
+        'hasAppointment': false,
       },
       {
         'name': 'Dr Kruger',
         'profession': 'Cardiologist',
         'rating': '4.8',
         'image': Assets.imagesImageDrGuyHawkins,
-        'reviews': '320'
+        'reviews': '320',
+        'hasAppointment': true,
       },
       {
         'name': 'Dr Reiner',
         'profession': 'Cancer Expert',
         'rating': '4.8',
         'image': Assets.imagesImageDrJacobJones,
-        'reviews': '310'
+        'reviews': '310',
+        'hasAppointment': false,
       },
       {
         'name': 'Dr Annie',
         'profession': 'Nurse',
         'rating': '4.9',
         'image': Assets.imagesImageDrJaneCooper,
-        'reviews': '20'
+        'reviews': '20',
+        'hasAppointment': false,
       },
       {
         'name': 'Dr Eren',
         'profession': 'Mass Murderer',
         'rating': '5.0',
         'image': Assets.imagesImageDrMarvinMckinney,
-        'reviews': '2250'
+        'reviews': '2250',
+        'hasAppointment': false,
       },
     ];
     final List<String> tags = [
@@ -76,9 +83,12 @@ class ListOfDoctorsPage extends StatelessWidget {
       backgroundColor: kScaffoldColor,
       appBar: AppBar(
         backgroundColor: kScaffoldColor,
-        leading: const Icon(
-          Icons.arrow_back_ios,
-          color: kDarkGrey,
+        leading: GestureDetector(
+          onTap: () => Navigator.pop(context),
+          child: const Icon(
+            Icons.arrow_back_ios,
+            color: kDarkGrey,
+          ),
         ),
         actions: const [
           Icon(
@@ -159,81 +169,7 @@ class ListOfDoctorsPage extends StatelessWidget {
               ),
               addVerticalSpacing(20),
               const LeftAlignedText(text: 'All'),
-              ListView.builder(
-                  itemCount: doctors.length,
-                  scrollDirection: Axis.vertical,
-                  physics: const NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Container(
-                        height: 74,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Colors.white,
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Image.asset(
-                                        doctors[index]['image'],
-                                        width: 36,
-                                        height: 36,
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(left: 5),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              doctors[index]['name'],
-                                            ),
-                                            Text(
-                                              doctors[index]['profession'],
-                                              style: kSubHeaderTextStyleGrey,
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  Row(
-                                    children: [
-                                      addHorizontalSpacing(20),
-                                      Text(
-                                        "(${doctors[index]['rating']} reviews)",
-                                      ),
-                                      const Icon(
-                                        Icons.star,
-                                        color: kAccentPrimaryPurple,
-                                      ),
-                                      Text(
-                                        doctors[index]['rating'],
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    );
-                  })
+              AllDoctorsList(doctors: doctors)
             ],
           ),
         ),

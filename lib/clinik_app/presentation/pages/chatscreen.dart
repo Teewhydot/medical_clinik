@@ -6,8 +6,10 @@ import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 import 'package:medical_clinik/clinik_app/domain/functions/firebase_functions.dart';
 import 'package:medical_clinik/clinik_app/domain/functions/scroll_to_bottom.dart';
+import 'package:medical_clinik/clinik_app/presentation/pages/doctor_details.dart';
 import 'package:medical_clinik/clinik_app/presentation/widgets/constants/constants.dart';
 import 'package:medical_clinik/clinik_app/presentation/widgets/reused_widgets/chat_bubble.dart';
+import 'package:medical_clinik/generated/assets.dart';
 import 'package:toast/toast.dart';
 
 class ChatScreen extends StatefulWidget {
@@ -59,6 +61,8 @@ class _ChatScreenState extends State<ChatScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final fem = MediaQuery.of(context).size.width / baseWidth;
+
     bool hasInternet;
     ToastContext().init(context);
     return GestureDetector(
@@ -68,24 +72,82 @@ class _ChatScreenState extends State<ChatScreen> {
       child: Scaffold(
         backgroundColor: kScaffoldColor,
         appBar: AppBar(
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.white,
           centerTitle: true,
           elevation: 0,
-          title: Text(
-            widget.cloneName,
-            style: kHeaderTextStyleBlack,
+          leading: IconButton(
+            icon: const Icon(
+              Icons.arrow_back_ios,
+              color: kDarkGrey,
+            ),
+            onPressed: () {
+              Navigator.pop(context);
+            },
           ),
-          actions: [
-            Switch.adaptive(
-                value: isSwitchedOn,
-                onChanged: (value) async {
-                  toggleSwitch(value);
-                }),
-          ],
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            Container(
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20),
+                  topRight: Radius.circular(20),
+                ),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Image.asset(
+                          Assets.imagesImageDrJaneCooper,
+                          width: 50,
+                          height: 50,
+                          fit: BoxFit.cover,
+                        ),
+                        addHorizontalSpacing(10),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              widget.cloneName,
+                              style: kHeaderTextStyleBlack,
+                            ),
+                            Row(
+                              children: [
+                                DotWidget(
+                                  fem: fem,
+                                  color: kAccentPrimaryGreen,
+                                ),
+                                Text(
+                                  'Online',
+                                  style: kSubHeaderTextStyleGrey,
+                                ),
+                              ],
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Image.asset(Assets.iconsChat,
+                            width: 40, height: 40, fit: BoxFit.cover),
+                        Switch.adaptive(
+                            value: isSwitchedOn,
+                            onChanged: (value) async {
+                              toggleSwitch(value);
+                            }),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
             Expanded(
               child: StreamBuilder<QuerySnapshot>(
                   stream: chatStream,
@@ -104,7 +166,7 @@ class _ChatScreenState extends State<ChatScreen> {
                             .map((DocumentSnapshot document) {
                           Map<String, dynamic> data =
                               document.data()! as Map<String, dynamic>;
-                          return CloneChatBubble(
+                          return ChatBubble(
                             message: data['messageText'],
                             cloneName: widget.cloneName,
                             isMe: data['whoSent'] == 'sender',

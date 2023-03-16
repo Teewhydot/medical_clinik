@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:medical_clinik/clinik_app/presentation/pages/doctor_details.dart';
+import 'package:medical_clinik/clinik_app/presentation/pages/mainscreen.dart';
 import 'package:medical_clinik/clinik_app/presentation/widgets/constants/constants.dart';
 import 'package:medical_clinik/clinik_app/presentation/widgets/reused_widgets/button_widget.dart';
 import 'package:medical_clinik/generated/assets.dart';
@@ -208,8 +209,15 @@ class BookingSuccessPage extends StatelessWidget {
                 ButtonWidget(
                     fem: fem,
                     color: kAccentPrimaryGreen,
-                    buttonText: 'Make Payment',
-                    onTap: () {}),
+                    buttonText: 'Home',
+                    onTap: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const MainScreen(),
+                        ),
+                      );
+                    }),
                 addVerticalSpacing(10),
                 ReusableContainer(
                     fem: fem,

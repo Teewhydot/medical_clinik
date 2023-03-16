@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medical_clinik/clinik_app/presentation/pages/auth_pages/sign_in.dart';
 import 'package:medical_clinik/clinik_app/presentation/widgets/constants/constants.dart';
 import 'package:medical_clinik/clinik_app/presentation/widgets/constants/device_width.dart';
 import 'package:medical_clinik/clinik_app/presentation/widgets/reused_widgets/birthday_field_widget.dart';
@@ -184,7 +185,12 @@ class IntroPageThree extends StatelessWidget {
                 fem: fem,
                 color: kAccentPrimaryGreen,
                 buttonText: 'Continue',
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const SignInPage()),
+                  );
+                },
               )
             ],
           ),

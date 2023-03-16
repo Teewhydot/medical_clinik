@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:medical_clinik/clinik_app/presentation/pages/doctor_details.dart';
+import 'package:medical_clinik/clinik_app/presentation/pages/doctors_list_page.dart';
 import 'package:medical_clinik/clinik_app/presentation/widgets/constants/constants.dart';
 import 'package:medical_clinik/clinik_app/presentation/widgets/reused_widgets/custom_textfield.dart';
 import 'package:medical_clinik/generated/assets.dart';
@@ -28,49 +30,56 @@ class _HomePageState extends State<HomePage> {
       'profession': 'Dentist',
       'rating': '4.8',
       'image': Assets.imagesImageDrFloydMiles,
-      'reviews': '220'
+      'reviews': '220',
+      'hasAppointment': false,
     },
     {
       'name': 'Dr Anvil',
       'profession': 'Dentist',
       'rating': '3.8',
       'image': Assets.imagesImageDrAnnetteBlack,
-      'reviews': '230'
+      'reviews': '230',
+      'hasAppointment': false,
     },
     {
       'name': 'Dr Mathew',
       'profession': 'Surgeon',
       'rating': '4.8',
       'image': Assets.imagesImageDrEleanorPena,
-      'reviews': '120'
+      'reviews': '120',
+      'hasAppointment': false,
     },
     {
       'name': 'Dr Kruger',
       'profession': 'Cardiologist',
       'rating': '4.8',
       'image': Assets.imagesImageDrGuyHawkins,
-      'reviews': '320'
+      'reviews': '320',
+      'hasAppointment': true,
     },
     {
       'name': 'Dr Reiner',
       'profession': 'Cancer Expert',
       'rating': '4.8',
       'image': Assets.imagesImageDrJacobJones,
-      'reviews': '310'
+      'reviews': '310',
+      'hasAppointment': false,
     },
     {
       'name': 'Dr Annie',
       'profession': 'Nurse',
       'rating': '4.9',
       'image': Assets.imagesImageDrJaneCooper,
-      'reviews': '20'
+      'reviews': '20',
+      'hasAppointment': false,
     },
     {
       'name': 'Dr Eren',
       'profession': 'Mass Murderer',
       'rating': '5.0',
       'image': Assets.imagesImageDrMarvinMckinney,
-      'reviews': '2250'
+      'reviews': '2250',
+      'hasAppointment': false,
     },
   ];
   @override
@@ -140,115 +149,130 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
               addVerticalSpacing(20),
-              Container(
-                height: 100,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: kAccentPrimaryBlue,
-                ),
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Image.asset(
-                                Assets.imagesImageDrAnnetteBlack,
-                                width: 36,
-                                height: 36,
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 5),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Dr. Eleanor Pena',
-                                      style: kHeaderTextStyleWhite.copyWith(
-                                          fontSize: 18),
-                                    ),
-                                    Text(
-                                      'Pediatrician',
-                                      style: kHeaderTextStyleWhite.copyWith(
-                                          fontSize: 14),
-                                    )
-                                  ],
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const DoctorsDetailsPage(
+                                name: 'Dr. Eleanor Pena',
+                                profession: 'Pediatrician',
+                                rating: '4.8',
+                                image: Assets.imagesImageDrEleanorPena,
+                                hasAppointment: false,
+                              )));
+                },
+                child: Container(
+                  height: 100,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: kAccentPrimaryBlue,
+                  ),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Image.asset(
+                                  Assets.imagesImageDrAnnetteBlack,
+                                  width: 36,
+                                  height: 36,
                                 ),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              addHorizontalSpacing(20),
-                              Text(
-                                "(220 reviews)",
-                                style: kHeaderTextStyleWhite.copyWith(
-                                    fontSize: 14),
-                              ),
-                              const Icon(
-                                Icons.star,
-                                color: kAccentPrimaryPurple,
-                              ),
-                              Text(
-                                '4.8',
-                                style: kHeaderTextStyleWhite.copyWith(
-                                    fontSize: 14),
-                              ),
-                            ],
-                          ),
-                        ],
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 5),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'Dr. Eleanor Pena',
+                                        style: kHeaderTextStyleWhite.copyWith(
+                                            fontSize: 18),
+                                      ),
+                                      Text(
+                                        'Pediatrician',
+                                        style: kHeaderTextStyleWhite.copyWith(
+                                            fontSize: 14),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                addHorizontalSpacing(20),
+                                Text(
+                                  "(220 reviews)",
+                                  style: kHeaderTextStyleWhite.copyWith(
+                                      fontSize: 14),
+                                ),
+                                const Icon(
+                                  Icons.star,
+                                  color: kAccentPrimaryPurple,
+                                ),
+                                Text(
+                                  '4.8',
+                                  style: kHeaderTextStyleWhite.copyWith(
+                                      fontSize: 14),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              Image.asset(
-                                Assets.imagesIconCalendar,
-                                width: 14,
-                                height: 14,
-                              ),
-                              addHorizontalSpacing(5),
-                              Text(
-                                '23 Mar',
-                                style: kHeaderTextStyleWhite.copyWith(
-                                    fontSize: 14),
-                              ),
-                              addHorizontalSpacing(30),
-                              Image.asset(
-                                Assets.imagesIconTime,
-                                width: 14,
-                                height: 14,
-                              ),
-                              addHorizontalSpacing(5),
-                              Text(
-                                '16:00',
-                                style: kHeaderTextStyleWhite.copyWith(
-                                    fontSize: 14),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              Text(
-                                '\$80',
-                                style: kHeaderTextStyleWhite.copyWith(
-                                    fontSize: 14),
-                              )
-                            ],
-                          )
-                        ],
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                Image.asset(
+                                  Assets.imagesIconCalendar,
+                                  width: 14,
+                                  height: 14,
+                                ),
+                                addHorizontalSpacing(5),
+                                Text(
+                                  '23 Mar',
+                                  style: kHeaderTextStyleWhite.copyWith(
+                                      fontSize: 14),
+                                ),
+                                addHorizontalSpacing(30),
+                                Image.asset(
+                                  Assets.imagesIconTime,
+                                  width: 14,
+                                  height: 14,
+                                ),
+                                addHorizontalSpacing(5),
+                                Text(
+                                  '16:00',
+                                  style: kHeaderTextStyleWhite.copyWith(
+                                      fontSize: 14),
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Text(
+                                  '\$80',
+                                  style: kHeaderTextStyleWhite.copyWith(
+                                      fontSize: 14),
+                                )
+                              ],
+                            )
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
               addVerticalSpacing(10),
@@ -312,93 +336,126 @@ class _HomePageState extends State<HomePage> {
                     'Popular Doctors',
                     style: kHeaderTextStyleBlack,
                   ),
-                  Text(
-                    'See all',
-                    style: kHeaderTextStyleBlack.copyWith(fontSize: 15),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ListOfDoctorsPage()));
+                    },
+                    child: Text(
+                      'See all',
+                      style: kHeaderTextStyleBlack.copyWith(fontSize: 15),
+                    ),
                   ),
                 ],
               ),
-              ListView.builder(
-                  itemCount: doctors.length,
-                  scrollDirection: Axis.vertical,
-                  physics: const NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Container(
-                        height: 74,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Colors.white,
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Image.asset(
-                                        doctors[index]['image'],
-                                        width: 36,
-                                        height: 36,
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(left: 5),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              doctors[index]['name'],
-                                            ),
-                                            Text(
-                                              doctors[index]['profession'],
-                                              style: kSubHeaderTextStyleGrey,
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  Row(
-                                    children: [
-                                      addHorizontalSpacing(20),
-                                      Text(
-                                        "(${doctors[index]['rating']} reviews)",
-                                      ),
-                                      const Icon(
-                                        Icons.star,
-                                        color: kAccentPrimaryPurple,
-                                      ),
-                                      Text(
-                                        doctors[index]['rating'],
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    );
-                  })
+              AllDoctorsList(doctors: doctors)
             ],
           ),
         )),
       ),
       backgroundColor: kScaffoldColor,
     );
+  }
+}
+
+class AllDoctorsList extends StatelessWidget {
+  const AllDoctorsList({
+    super.key,
+    required this.doctors,
+  });
+
+  final List<Map<String, dynamic>> doctors;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+        itemCount: doctors.length,
+        scrollDirection: Axis.vertical,
+        physics: const NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
+        itemBuilder: (context, index) {
+          return GestureDetector(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => DoctorsDetailsPage(
+                            image: doctors[index]['image'],
+                            name: doctors[index]['name'],
+                            profession: doctors[index]['profession'],
+                            hasAppointment: doctors[index]['hasAppointment'],
+                            rating: doctors[index]['rating'],
+                          )));
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: Container(
+                height: 74,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.white,
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Image.asset(
+                                doctors[index]['image'],
+                                width: 36,
+                                height: 36,
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 5),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      doctors[index]['name'],
+                                    ),
+                                    Text(
+                                      doctors[index]['profession'],
+                                      style: kSubHeaderTextStyleGrey,
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              addHorizontalSpacing(20),
+                              Text(
+                                "(${doctors[index]['reviews']} reviews)",
+                              ),
+                              const Icon(
+                                Icons.star,
+                                color: kAccentPrimaryPurple,
+                              ),
+                              Text(
+                                doctors[index]['rating'],
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          );
+        });
   }
 }
 

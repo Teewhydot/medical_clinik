@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:medical_clinik/clinik_app/presentation/pages/booking_success.dart';
 import 'package:medical_clinik/clinik_app/presentation/pages/doctor_details.dart';
 import 'package:medical_clinik/clinik_app/presentation/widgets/constants/constants.dart';
 import 'package:medical_clinik/clinik_app/presentation/widgets/reused_widgets/button_widget.dart';
@@ -87,7 +88,13 @@ class _PaymentOptionsState extends State<PaymentOptions> {
                       fem: fem,
                       color: kAccentPrimaryGreen,
                       buttonText: "Proceed",
-                      onTap: () {}),
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const BookingSuccessPage()));
+                      }),
                   addVerticalSpacing(40),
                 ],
               )
