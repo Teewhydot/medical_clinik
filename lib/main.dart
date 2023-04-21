@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:medical_clinik/clinik_app/presentation/manager/providers/chat_provider.dart';
 import 'package:medical_clinik/clinik_app/presentation/manager/providers/delete_clone_provider.dart';
 import 'package:medical_clinik/clinik_app/presentation/manager/providers/username_provider.dart';
-import 'package:medical_clinik/clinik_app/presentation/pages/home_page.dart';
+import 'package:medical_clinik/clinik_app/presentation/pages/mainscreen.dart';
 import 'package:medical_clinik/firebase_options.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
       //   widget1: MedicalClinik(),
       //   widget2: IntroPageOne(),
       // ),
-      home: HomePage(),
+      home: MainScreen(),
     );
   }
 }

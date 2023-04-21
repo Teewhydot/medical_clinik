@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:medical_clinik/clinik_app/presentation/manager/providers/username_provider.dart';
-import 'package:medical_clinik/clinik_app/presentation/pages/add_new_chat.dart';
 import 'package:medical_clinik/clinik_app/presentation/pages/chat.dart';
 import 'package:medical_clinik/clinik_app/presentation/pages/home_page.dart';
 import 'package:medical_clinik/clinik_app/presentation/widgets/constants/constants.dart';
 import 'package:medical_clinik/clinik_app/presentation/widgets/constants/device_width.dart';
 import 'package:medical_clinik/generated/assets.dart';
 import 'package:provider/provider.dart';
+import 'package:toast/toast.dart';
 
 import 'create_username.dart';
 import 'profile.dart';
@@ -24,12 +24,7 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    void awaitCloneNameFromModalPopup(BuildContext context) async {
-      await showModalBottomSheet(
-          context: context,
-          builder: (BuildContext context) => const AddNewUserClone());
-    }
-
+    ToastContext().init(context);
     final provider = Provider.of<UserNameProvider>(context);
     final pages = [
       const HomePage(),
@@ -96,7 +91,8 @@ class _MainScreenState extends State<MainScreen> {
             ),
             GestureDetector(
               onTap: () {
-                awaitCloneNameFromModalPopup(context);
+                Toast.show('Feature coming soon',
+                    duration: 2, gravity: Toast.bottom);
               },
               child: const CircleAvatar(
                 radius: 30,
