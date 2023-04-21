@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:medical_clinik/clinik_app/presentation/manager/providers/chat_provider.dart';
 import 'package:medical_clinik/clinik_app/presentation/manager/providers/delete_clone_provider.dart';
 import 'package:medical_clinik/clinik_app/presentation/manager/providers/username_provider.dart';
-import 'package:medical_clinik/clinik_app/presentation/pages/intro_pages/intro_page_one.dart';
-import 'package:medical_clinik/clinik_app/presentation/pages/intro_pages/splash_screen.dart';
-import 'package:medical_clinik/clinik_app/presentation/pages/widget_switcher.dart';
+import 'package:medical_clinik/clinik_app/presentation/pages/home_page.dart';
 import 'package:medical_clinik/firebase_options.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -13,6 +11,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+  await sharedPreferences.setInt('initScreen', 1);
   final userNameFromStorage = sharedPreferences.getString('userName') ?? '';
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(MultiProvider(providers: [
@@ -30,10 +29,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: WidgetSwitcher(
-        widget1: MedicalClinik(),
-        widget2: IntroPageOne(),
-      ),
+      // home: WidgetSwitcher(
+      //   widget1: MedicalClinik(),
+      //   widget2: IntroPageOne(),
+      // ),
+      home: HomePage(),
     );
   }
 }

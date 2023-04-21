@@ -5,7 +5,6 @@ class Assets {
   static const String iconsBloodTest = 'assets/icons/blood_test.png';
   static const String iconsCall = 'assets/icons/call.png';
   static const String iconsCardiologist = 'assets/icons/cardiologist.png';
-  static const String iconsChat = 'assets/icons/chat.png';
   static const String iconsChatSelected = 'assets/icons/chat_selected.png';
   static const String iconsChatUnselected = 'assets/icons/chat_unselected.png';
   static const String iconsDentist = 'assets/icons/dentist.png';
@@ -49,49 +48,13 @@ class Assets {
       'assets/images/emojione-flag-for-poland.png';
   static const String imagesHospital = 'assets/images/hospital.png';
   static const String imagesHospitalDqz = 'assets/images/hospital-Dqz.png';
-  static const String imagesI518006sm005c1210 =
-      'assets/images/i518006sm005c12-10.png';
-  static const String imagesI518006sm005c1210WRS =
-      'assets/images/i518006sm005c12-10-wRS.png';
-  static const String imagesI518006sm005c1211 =
-      'assets/images/i518006sm005c12-11.png';
-  static const String imagesI518006sm005c12119aY =
-      'assets/images/i518006sm005c12-11-9aY.png';
   static const String imagesI518006sm005c122 =
       'assets/images/i518006sm005c12-2.png';
-  static const String imagesI518006sm005c123 =
-      'assets/images/i518006sm005c12-3.png';
-  static const String imagesI518006sm005c124 =
-      'assets/images/i518006sm005c12-4.png';
-  static const String imagesI518006sm005c128 =
-      'assets/images/i518006sm005c12-8.png';
-  static const String imagesI518006sm005c128MKv =
-      'assets/images/i518006sm005c12-8-MKv.png';
-  static const String imagesI518006sm005c129 =
-      'assets/images/i518006sm005c12-9.png';
-  static const String imagesI518006sm005c1293iG =
-      'assets/images/i518006sm005c12-9-3iG.png';
   static const String imagesIconArrow = 'assets/images/icon-arrow.png';
   static const String imagesIconArrow1FE = 'assets/images/icon-arrow-1FE.png';
   static const String imagesIconArrow1s6 = 'assets/images/icon-arrow-1s6.png';
   static const String imagesIconArrowChW = 'assets/images/icon-arrow-chW.png';
   static const String imagesIconArrowLeft = 'assets/images/icon-arrow-left.png';
-  static const String imagesIconArrowLeft3je =
-      'assets/images/icon-arrow-left-3je.png';
-  static const String imagesIconArrowLeftBVa =
-      'assets/images/icon-arrow-left-BVa.png';
-  static const String imagesIconArrowLeftEqN =
-      'assets/images/icon-arrow-left-EqN.png';
-  static const String imagesIconArrowLeftJfv =
-      'assets/images/icon-arrow-left-jfv.png';
-  static const String imagesIconArrowLeftKeY =
-      'assets/images/icon-arrow-left-KeY.png';
-  static const String imagesIconArrowLeftMap =
-      'assets/images/icon-arrow-left-Map.png';
-  static const String imagesIconArrowLeftPa4 =
-      'assets/images/icon-arrow-left-pa4.png';
-  static const String imagesIconArrowLeftULp =
-      'assets/images/icon-arrow-left-ULp.png';
   static const String imagesIconArrowPZ6 = 'assets/images/icon-arrow-pZ6.png';
   static const String imagesIconArrowWxL = 'assets/images/icon-arrow-wxL.png';
   static const String imagesIconCalendar = 'assets/images/icon-calendar.png';

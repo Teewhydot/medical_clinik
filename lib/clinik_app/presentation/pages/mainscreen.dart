@@ -25,14 +25,12 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     void awaitCloneNameFromModalPopup(BuildContext context) async {
-      // start the SecondScreen and wait for it to finish with a result
       await showModalBottomSheet(
           context: context,
           builder: (BuildContext context) => const AddNewUserClone());
     }
 
     final provider = Provider.of<UserNameProvider>(context);
-
     final pages = [
       const HomePage(),
       const Receipt(),

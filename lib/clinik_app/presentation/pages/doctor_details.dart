@@ -3,6 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:medical_clinik/clinik_app/presentation/pages/payment_options.dart';
 import 'package:medical_clinik/clinik_app/presentation/widgets/constants/constants.dart';
 import 'package:medical_clinik/clinik_app/presentation/widgets/reused_widgets/date_select_widget.dart';
+import 'package:medical_clinik/clinik_app/presentation/widgets/reused_widgets/doctor_stats.dart';
+import 'package:medical_clinik/clinik_app/presentation/widgets/reused_widgets/dot_widget.dart';
+import 'package:medical_clinik/clinik_app/presentation/widgets/reused_widgets/reusable_container.dart';
 import 'package:medical_clinik/clinik_app/presentation/widgets/reused_widgets/time_select_widget.dart';
 import 'package:medical_clinik/generated/assets.dart';
 
@@ -191,37 +194,6 @@ class _DoctorsDetailsPageState extends State<DoctorsDetailsPage> {
   }
 }
 
-class ReusableContainer extends StatelessWidget {
-  const ReusableContainer(
-      {super.key,
-      required this.fem,
-      required this.width,
-      required this.height,
-      required this.child,
-      required this.color,
-      required this.borderRadius});
-
-  final double fem;
-  final double height;
-  final double width;
-  final Widget child;
-  final double borderRadius;
-  final Color color;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: height * fem,
-      width: width * fem,
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.circular(borderRadius * fem),
-      ),
-      child: Center(child: child),
-    );
-  }
-}
-
 class LeftAlignedText extends StatelessWidget {
   const LeftAlignedText({
     super.key,
@@ -236,101 +208,6 @@ class LeftAlignedText extends StatelessWidget {
         text,
         style: kHeaderTextStyleBlack,
       ),
-    );
-  }
-}
-
-class DoctorStats extends StatelessWidget {
-  const DoctorStats({
-    super.key,
-    required this.fem,
-    required this.rating,
-  });
-
-  final double fem;
-  final String rating;
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Text(
-              'Patients',
-              style: kSubHeaderTextStyleGrey,
-            ),
-            Text(
-              'Experience',
-              style: kSubHeaderTextStyleGrey,
-            ),
-            Text(
-              'Ratings',
-              style: kSubHeaderTextStyleGrey,
-            )
-          ],
-        ),
-        addVerticalSpacing(10),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            ReusableContainer(
-              fem: fem,
-              height: 58 * fem,
-              width: 117 * fem,
-              color: kDarkGreyShade400,
-              borderRadius: 10,
-              child: Center(
-                child: Text(
-                  '+423',
-                  style: kHeaderTextStyleBlack.copyWith(
-                    fontSize: 18 * fem,
-                  ),
-                ),
-              ),
-            ),
-            ReusableContainer(
-              fem: fem,
-              height: 58 * fem,
-              width: 117 * fem,
-              borderRadius: 10,
-              color: kDarkGreyShade400,
-              child: Center(
-                child: Text(
-                  '+8yrs',
-                  style: kHeaderTextStyleBlack.copyWith(
-                    fontSize: 18 * fem,
-                  ),
-                ),
-              ),
-            ),
-            ReusableContainer(
-              fem: fem,
-              height: 58 * fem,
-              width: 117 * fem,
-              borderRadius: 10,
-              color: kDarkGreyShade400,
-              child: Center(
-                child: Center(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        rating,
-                        style: kHeaderTextStyleBlack.copyWith(
-                          fontSize: 18 * fem,
-                        ),
-                      ),
-                      const Icon(Icons.star,
-                          color: kAccentPrimaryPurple, size: 20),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ],
     );
   }
 }
@@ -499,7 +376,7 @@ class DoctorCard extends StatelessWidget {
                         width: 40 * fem,
                         height: 40 * fem,
                         child: Image.asset(
-                          Assets.iconsChat,
+                          Assets.iconsCall,
                           width: 40 * fem,
                           height: 40 * fem,
                         ),
@@ -508,7 +385,7 @@ class DoctorCard extends StatelessWidget {
                         width: 40 * fem,
                         height: 40 * fem,
                         child: Image.asset(
-                          Assets.iconsCall,
+                          Assets.iconsChatSelected,
                           width: 40 * fem,
                           height: 40 * fem,
                         ),
@@ -545,31 +422,6 @@ class DoctorCard extends StatelessWidget {
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class DotWidget extends StatelessWidget {
-  const DotWidget({
-    super.key,
-    required this.fem,
-    required this.color,
-  });
-
-  final double fem;
-  final Color color;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // rectangleRoN (9:882)
-      margin: EdgeInsets.fromLTRB(0 * fem, 1 * fem, 8 * fem, 0 * fem),
-      width: 8 * fem,
-      height: 8 * fem,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(6 * fem),
-        color: color,
       ),
     );
   }

@@ -48,6 +48,9 @@ class IntroPageOne extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                           builder: (context) => const IntroPageTwo(),
+                          // initScreen == 0 || initScreen == null
+                          //     ? const IntroPageTwo()
+                          //     : const SignInPage(),
                         ),
                       );
                     },

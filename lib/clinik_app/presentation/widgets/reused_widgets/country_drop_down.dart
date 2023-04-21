@@ -300,7 +300,7 @@ class CountryPickerWidget extends StatefulWidget {
 }
 
 class _CountryPickerWidgetState extends State<CountryPickerWidget> {
-  Map<String, String> _selectedCountry = {
+  Map<String, String>? _selectedCountry = {
     'name': 'Select country',
     'code': '',
   };
@@ -397,16 +397,16 @@ class _CountryPickerWidgetState extends State<CountryPickerWidget> {
               padding: const EdgeInsets.only(left: 16),
               child: Row(
                 children: [
-                  _selectedCountry['code']!.isNotEmpty
+                  _selectedCountry!['code']!.isNotEmpty
                       ? Flag.fromString(
-                          _selectedCountry['code']!,
+                          _selectedCountry!['code']!,
                           height: 16,
                           width: 24,
                         )
                       : Container(),
                   addHorizontalSpacing(8),
                   Text(
-                    _selectedCountry['name']!,
+                    _selectedCountry!['name']!,
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.grey[600],

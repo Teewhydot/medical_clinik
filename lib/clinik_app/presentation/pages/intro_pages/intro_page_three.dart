@@ -8,9 +8,18 @@ import 'package:medical_clinik/clinik_app/presentation/widgets/reused_widgets/co
 import 'package:medical_clinik/clinik_app/presentation/widgets/reused_widgets/header_widget.dart';
 import 'package:medical_clinik/generated/assets.dart';
 
-class IntroPageThree extends StatelessWidget {
+class IntroPageThree extends StatefulWidget {
   const IntroPageThree({Key? key}) : super(key: key);
 
+  @override
+  State<IntroPageThree> createState() => _IntroPageThreeState();
+}
+
+class _IntroPageThreeState extends State<IntroPageThree> {
+  final TextEditingController _dayController = TextEditingController();
+  final TextEditingController _monthController = TextEditingController();
+  final TextEditingController _yearController = TextEditingController();
+  int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     double fem = Constants.deviceWidth! / baseWidth;
@@ -44,90 +53,110 @@ class IntroPageThree extends StatelessWidget {
                 width: double.infinity,
                 height: 99 * fem,
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Container(
-                      margin: EdgeInsets.fromLTRB(
-                          0 * fem, 0 * fem, 10 * fem, 0 * fem),
-                      padding: EdgeInsets.fromLTRB(
-                          12 * fem, 18 * fem, 25 * fem, 18 * fem),
-                      height: double.infinity,
-                      decoration: BoxDecoration(
-                        color: const Color(0xffeff2f1),
-                        borderRadius: BorderRadius.circular(18 * fem),
-                      ),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 63 * fem,
-                            height: 63 * fem,
-                            decoration: BoxDecoration(
-                              color: kAccentPrimaryGreen,
-                              borderRadius: BorderRadius.circular(13 * fem),
-                            ),
-                            child: Center(
-                              child: SizedBox(
-                                width: 15.93 * fem,
-                                height: 28 * fem,
-                                child: Image.asset(
-                                  Assets.imagesIconMale,
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          selectedIndex = 1;
+                        });
+                      },
+                      child: Container(
+                        margin: EdgeInsets.fromLTRB(
+                            0 * fem, 0 * fem, 10 * fem, 0 * fem),
+                        padding: EdgeInsets.fromLTRB(
+                            12 * fem, 18 * fem, 25 * fem, 18 * fem),
+                        height: double.infinity,
+                        decoration: BoxDecoration(
+                          color: selectedIndex == 1
+                              ? kAccentPrimaryGreen.withOpacity(0.5)
+                              : kDarkGreyShade400,
+                          borderRadius: BorderRadius.circular(18 * fem),
+                        ),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Container(
+                              width: 63 * fem,
+                              height: 63 * fem,
+                              decoration: BoxDecoration(
+                                color: kAccentPrimaryGreen,
+                                borderRadius: BorderRadius.circular(13 * fem),
+                              ),
+                              child: Center(
+                                child: SizedBox(
                                   width: 15.93 * fem,
                                   height: 28 * fem,
+                                  child: Image.asset(
+                                    Assets.imagesIconMale,
+                                    width: 15.93 * fem,
+                                    height: 28 * fem,
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                          addHorizontalSpacing(20 * fem),
-                          Text(
-                            // maleBwW (9:445)
-                            'Male',
-                            style: kHeaderTextStyleBlack.copyWith(fontSize: 20),
-                          ),
-                        ],
+                            addHorizontalSpacing(20 * fem),
+                            Text(
+                              // maleBwW (9:445)
+                              'Male',
+                              style:
+                                  kHeaderTextStyleBlack.copyWith(fontSize: 20),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                    Container(
-                      // maleKF6 (9:443)
-                      margin: EdgeInsets.fromLTRB(
-                          0 * fem, 0 * fem, 10 * fem, 0 * fem),
-                      padding: EdgeInsets.fromLTRB(
-                          12 * fem, 18 * fem, 25 * fem, 18 * fem),
-                      height: double.infinity,
-                      decoration: BoxDecoration(
-                        color: const Color(0xffeff2f1),
-                        borderRadius: BorderRadius.circular(18 * fem),
-                      ),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 63 * fem,
-                            height: 63 * fem,
-                            decoration: BoxDecoration(
-                              color: kDarkGreyShade200,
-                              borderRadius: BorderRadius.circular(13 * fem),
-                            ),
-                            child: Center(
-                              child: SizedBox(
-                                width: 15.93 * fem,
-                                height: 28 * fem,
-                                child: Image.asset(
-                                  Assets.imagesIconFemale,
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          selectedIndex = 2;
+                        });
+                      },
+                      child: Container(
+                        // maleKF6 (9:443)
+                        margin: EdgeInsets.fromLTRB(
+                            0 * fem, 0 * fem, 10 * fem, 0 * fem),
+                        padding: EdgeInsets.fromLTRB(
+                            12 * fem, 18 * fem, 25 * fem, 18 * fem),
+                        height: double.infinity,
+                        decoration: BoxDecoration(
+                          color: selectedIndex == 2
+                              ? kAccentPrimaryGreen.withOpacity(0.5)
+                              : kDarkGreyShade400,
+                          borderRadius: BorderRadius.circular(18 * fem),
+                        ),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Container(
+                              width: 63 * fem,
+                              height: 63 * fem,
+                              decoration: BoxDecoration(
+                                color: kDarkGreyShade200,
+                                borderRadius: BorderRadius.circular(13 * fem),
+                              ),
+                              child: Center(
+                                child: SizedBox(
                                   width: 15.93 * fem,
                                   height: 28 * fem,
+                                  child: Image.asset(
+                                    Assets.imagesIconFemale,
+                                    width: 15.93 * fem,
+                                    height: 28 * fem,
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                          addHorizontalSpacing(10 * fem),
-                          Text(
-                            // maleBwW (9:445)
-                            'Female',
-                            style: kHeaderTextStyleBlack.copyWith(fontSize: 20),
-                          ),
-                        ],
+                            addHorizontalSpacing(10 * fem),
+                            Text(
+                              // maleBwW (9:445)
+                              'Female',
+                              style:
+                                  kHeaderTextStyleBlack.copyWith(fontSize: 20),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ],
@@ -153,6 +182,7 @@ class IntroPageThree extends StatelessWidget {
                       width: 70,
                       label: 'Day',
                       maxLength: 2,
+                      controller: _dayController,
                     ),
                     addHorizontalSpacing(16),
                     BirthdayFieldWidget(
@@ -160,6 +190,7 @@ class IntroPageThree extends StatelessWidget {
                       width: 79,
                       label: 'Month',
                       maxLength: 2,
+                      controller: _monthController,
                     ),
                     addHorizontalSpacing(16),
                     BirthdayFieldWidget(
@@ -167,6 +198,7 @@ class IntroPageThree extends StatelessWidget {
                       width: 99,
                       label: 'Year',
                       maxLength: 4,
+                      controller: _yearController,
                     ),
                   ],
                 ),

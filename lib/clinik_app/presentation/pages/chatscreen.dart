@@ -6,9 +6,9 @@ import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 import 'package:medical_clinik/clinik_app/domain/functions/firebase_functions.dart';
 import 'package:medical_clinik/clinik_app/domain/functions/scroll_to_bottom.dart';
-import 'package:medical_clinik/clinik_app/presentation/pages/doctor_details.dart';
 import 'package:medical_clinik/clinik_app/presentation/widgets/constants/constants.dart';
 import 'package:medical_clinik/clinik_app/presentation/widgets/reused_widgets/chat_bubble.dart';
+import 'package:medical_clinik/clinik_app/presentation/widgets/reused_widgets/dot_widget.dart';
 import 'package:medical_clinik/generated/assets.dart';
 import 'package:toast/toast.dart';
 
@@ -135,7 +135,7 @@ class _ChatScreenState extends State<ChatScreen> {
                     ),
                     Row(
                       children: [
-                        Image.asset(Assets.iconsChat,
+                        Image.asset(Assets.iconsChatSelected,
                             width: 40, height: 40, fit: BoxFit.cover),
                         Switch.adaptive(
                             value: isSwitchedOn,

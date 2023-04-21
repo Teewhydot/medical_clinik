@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 void _scrollToBottom(BuildContext context) {
-  final ScrollController scrollController =
-      PrimaryScrollController.of(context)!;
+  final ScrollController scrollController = PrimaryScrollController.of(context);
   scrollController.animateTo(
     scrollController.position.maxScrollExtent,
     duration: const Duration(milliseconds: 300),

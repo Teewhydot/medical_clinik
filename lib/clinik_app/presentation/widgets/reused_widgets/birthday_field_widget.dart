@@ -9,12 +9,14 @@ class BirthdayFieldWidget extends StatelessWidget {
     required this.width,
     required this.label,
     required this.maxLength,
+    required this.controller,
   });
 
   final double fem;
   final double width;
   final String label;
   final int maxLength;
+  final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +34,7 @@ class BirthdayFieldWidget extends StatelessWidget {
             ),
           ),
           TextFormField(
+            controller: controller,
             maxLength: maxLength,
             keyboardType: TextInputType.number,
             textAlign: TextAlign.center,
