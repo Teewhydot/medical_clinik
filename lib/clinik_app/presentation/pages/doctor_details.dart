@@ -69,7 +69,7 @@ class _DoctorsDetailsPageState extends State<DoctorsDetailsPage> {
                 color: Colors.white,
                 name: widget.name,
                 profession: widget.profession,
-                image: widget.image,
+                imagePath: widget.image,
               ),
               Visibility(
                 visible: widget.hasAppointment,

@@ -15,14 +15,14 @@ class DoctorCard extends StatefulWidget {
     required this.color,
     required this.name,
     required this.profession,
-    required this.image,
+    required this.imagePath,
   });
 
   final double fem;
   final Color color;
   final String name;
   final String profession;
-  final String image;
+  final String imagePath;
 
   @override
   State<DoctorCard> createState() => _DoctorCardState();
@@ -59,7 +59,7 @@ class _DoctorCardState extends State<DoctorCard> {
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: AssetImage(
-                  widget.image,
+                  widget.imagePath,
                 ),
               ),
             ),
@@ -167,7 +167,8 @@ class _DoctorCardState extends State<DoctorCard> {
                                 isLoading = false;
                               });
                             } else {
-                              addCloneToFirebase(widget.name, context);
+                              addChatToFirebase(
+                                  widget.name, widget.imagePath, context);
                               setState(() {
                                 isLoading = false;
                               });

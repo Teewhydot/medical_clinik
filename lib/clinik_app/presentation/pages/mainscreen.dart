@@ -31,7 +31,7 @@ class _MainScreenState extends State<MainScreen> {
       const Receipt(),
       provider.name.isEmpty
           ? const CreateUserNamePage()
-          : FlashChat(userName: provider.name),
+          : MedikalChat(userName: provider.name),
       const Profile(),
     ];
     return Scaffold(

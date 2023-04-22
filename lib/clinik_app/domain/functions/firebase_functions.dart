@@ -22,7 +22,7 @@ Future<void> addMessageToFirebase(String message, BuildContext context,
   });
 }
 
-Future<void> deleteClone(String cloneName, BuildContext context) {
+Future<void> deleteChat(String cloneName, BuildContext context) {
   final nameProvider = Provider.of<UserNameProvider>(context, listen: false);
   final fireStore = FirebaseFirestore.instance;
   return fireStore
@@ -33,7 +33,8 @@ Future<void> deleteClone(String cloneName, BuildContext context) {
       .delete();
 }
 
-Future<void> addCloneToFirebase(String cloneName, BuildContext context) async {
+Future<void> addChatToFirebase(
+    String cloneName, String imagePath, BuildContext context) async {
   final fireStore = FirebaseFirestore.instance;
   final provider = Provider.of<UserNameProvider>(context, listen: false);
   await fireStore
@@ -43,6 +44,7 @@ Future<void> addCloneToFirebase(String cloneName, BuildContext context) async {
       .doc(cloneName)
       .set({
     'cloneName': cloneName,
+    'imagePath': imagePath,
   });
 
   await fireStore
