@@ -19,7 +19,6 @@ class _MedikalChatState extends State<MedikalChat> {
   static List<ConversationList> conversationList = [];
   List<ConversationList> displayList = List.from(conversationList);
   final fireStore = FirebaseFirestore.instance;
-  var newUserName;
   late Stream<QuerySnapshot> chatStream;
   late Stream<QuerySnapshot> imageStream;
 

@@ -15,7 +15,12 @@ import 'package:toast/toast.dart';
 class ChatScreen extends StatefulWidget {
   final String cloneName;
   final String userName;
-  const ChatScreen(this.cloneName, this.userName, {super.key});
+  final String imagePath;
+  const ChatScreen(
+      {super.key,
+      required this.cloneName,
+      required this.userName,
+      required this.imagePath});
 
   @override
   State<ChatScreen> createState() => _ChatScreenState();
@@ -104,7 +109,7 @@ class _ChatScreenState extends State<ChatScreen> {
                     Row(
                       children: [
                         Image.asset(
-                          Assets.imagesImageDrJaneCooper,
+                          widget.imagePath,
                           width: 50,
                           height: 50,
                           fit: BoxFit.cover,

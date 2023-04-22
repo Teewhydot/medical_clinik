@@ -16,8 +16,9 @@ class ConversationList extends StatefulWidget {
   final String userName;
   final String imagePath;
 
-  ConversationList(
-      {required this.cloneNameFromFirestore,
+  const ConversationList(
+      {super.key,
+      required this.cloneNameFromFirestore,
       required this.imagePath,
       required this.userName});
   @override
@@ -94,7 +95,10 @@ class ConversationListState extends State<ConversationList> {
             context,
             MaterialPageRoute(
                 builder: (context) => ChatScreen(
-                    widget.cloneNameFromFirestore, widget.userName)));
+                      cloneName: widget.cloneNameFromFirestore,
+                      userName: widget.userName,
+                      imagePath: widget.imagePath,
+                    )));
       },
       child: Padding(
         padding: const EdgeInsets.all(8.0),
