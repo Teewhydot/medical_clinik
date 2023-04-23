@@ -140,7 +140,7 @@ class _ChatScreenState extends State<ChatScreen> {
                     ),
                     Row(
                       children: [
-                        Image.asset(Assets.iconsChatSelected,
+                        Image.asset(Assets.iconsCall,
                             width: 40, height: 40, fit: BoxFit.cover),
                         Switch.adaptive(
                             value: isSwitchedOn,

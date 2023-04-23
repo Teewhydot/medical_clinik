@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:medical_clinik/clinik_app/presentation/manager/providers/chat_provider.dart';
 import 'package:medical_clinik/clinik_app/presentation/manager/providers/delete_clone_provider.dart';
 import 'package:medical_clinik/clinik_app/presentation/manager/providers/username_provider.dart';
-import 'package:medical_clinik/clinik_app/presentation/pages/mainscreen.dart';
+import 'package:medical_clinik/clinik_app/presentation/pages/intro_pages/intro_page_one.dart';
+import 'package:medical_clinik/clinik_app/presentation/pages/intro_pages/splash_screen.dart';
+import 'package:medical_clinik/clinik_app/presentation/pages/widget_switcher.dart';
 import 'package:medical_clinik/firebase_options.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -29,11 +31,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      // home: WidgetSwitcher(
-      //   widget1: MedicalClinik(),
-      //   widget2: IntroPageOne(),
-      // ),
-      home: MainScreen(),
+      home: WidgetSwitcher(
+        widget1: MedicalClinik(),
+        widget2: IntroPageOne(),
+      ),
     );
   }
 }

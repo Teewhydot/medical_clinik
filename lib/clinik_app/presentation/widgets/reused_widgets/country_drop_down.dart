@@ -388,7 +388,7 @@ class _CountryPickerWidgetState extends State<CountryPickerWidget> {
       height: 44,
       decoration: BoxDecoration(
         color: Colors.grey[200],
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(20),
       ),
       child: Row(
         children: [
@@ -422,27 +422,39 @@ class _CountryPickerWidgetState extends State<CountryPickerWidget> {
               onTap: () {
                 showModalBottomSheet(
                   context: context,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(20)),
+                  ),
                   builder: (context) {
-                    return ListView.builder(
-                      itemCount: _countryList.length,
-                      itemBuilder: (context, index) {
-                        return ListTile(
-                          leading: _countryList[index]['code']!.isNotEmpty
-                              ? Flag.fromString(
-                                  _countryList[index]['code']!,
-                                  height: 20,
-                                  width: 30,
-                                )
-                              : Container(),
-                          title: Text(_countryList[index]['name']!),
-                          onTap: () {
-                            setState(() {
-                              _selectedCountry = _countryList[index];
-                            });
-                            Navigator.pop(context);
-                          },
-                        );
-                      },
+                    return Container(
+                      decoration: const BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(20))),
+                      child: ListView.builder(
+                        itemCount: _countryList.length,
+                        itemBuilder: (context, index) {
+                          return ListTile(
+                            leading: _countryList[index]['code']!.isNotEmpty
+                                ? Flag.fromString(
+                                    _countryList[index]['code']!,
+                                    height: 20,
+                                    width: 30,
+                                  )
+                                : Container(),
+                            title: Text(_countryList[index]['name']!),
+                            onTap: () {
+                              setState(() {
+                                _selectedCountry = _countryList[index];
+                              });
+                              Navigator.pop(context);
+                            },
+                          );
+                        },
+                      ),
                     );
                   },
                 );
